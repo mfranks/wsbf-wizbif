@@ -1,0 +1,160 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery.LazyJaxDavis - Davis.js</title>
+<meta name="viewport" content="width=1000">
+<link rel="stylesheet" href="/jQuery.LazyJaxDavis/doc/common/css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="/jQuery.LazyJaxDavis/lib/davis.js"></script>
+<script src="/jQuery.LazyJaxDavis/jquery.lazyjaxdavis.js"></script>
+<script src="/jQuery.LazyJaxDavis/doc/common/js/script.js"></script>
+</head>
+<body><div class="mod-all">
+
+<div class="mod-header">
+	<h1><a href="/jQuery.LazyJaxDavis/doc/">jQuery.LazyJaxDavis</a></h1>
+</div>
+
+
+<div class="mod-body">
+	<div class="mod-side">
+	<div class="mod-sidenav" id="sidenav">
+		<ul>
+			<li class="first"><a href="/jQuery.LazyJaxDavis/doc/">Introduction</a></li>
+			
+				<li class="post"><a href="/jQuery.LazyJaxDavis/doc/pages/setup.html">Setup</a></li>
+			
+				<li class="post"><a href="/jQuery.LazyJaxDavis/doc/pages/lazylinks.html">Lazy links/forms</a></li>
+			
+				<li class="post"><a href="/jQuery.LazyJaxDavis/doc/pages/anchorhandling.html">Anchor handling</a></li>
+			
+				<li class="post"><a href="/jQuery.LazyJaxDavis/doc/pages/urlrouting.html">URL routing</a></li>
+			
+				<li class="post"><a href="/jQuery.LazyJaxDavis/doc/pages/davis.html">Davis.js</a></li>
+			
+				<li class="post"><a href="/jQuery.LazyJaxDavis/doc/pages/demos.html">Demos</a></li>
+			
+		</ul>
+		<ul>
+			<li><a href="https://github.com/Takazudo/jQuery.LazyJaxDavis"><span>⇱</span> Project page</a></li>
+			<li><a href="https://github.com/Takazudo/jQuery.LazyJaxDavis/tags"><span>⇱</span> Downloads</a></li>
+		</ul>
+	</div>
+</div>
+
+	<div class="mod-main" id="main">
+			<div id="lazyjaxdavisroot">
+			<!-- LazyJaxDavis start -->
+
+			<div class="mod-article">
+				<h2>Davis.js</h2>
+
+<p>jQuery.LazyJaxDavis needs <a href="http://davisjs.com/">Davis.js</a> to work.<br/>
+If you want to use jQuery.LazyJaxDavis, you need to load Davis.js too.</p>
+
+<h3>What is Davis.js?</h3>
+
+<p><a href="http://davisjs.com/">Davis.js</a>'s website says</p>
+
+<blockquote><p>Davis.js is a small JavaScript library using HTML5 history.pushState that allows simple Sinatra style routing for your JavaScript apps.</p></blockquote>
+
+<p>Generally, Davis.js was made for the web apps using history API. With this library, you can make URL routings for web apps easily. <a href="http://documentcloud.github.com/backbone/">Backbone.js</a>'s Router provides similar API.</p>
+
+<h3>How to use Davis.js</h3>
+
+<p>With Davis.js, you can create URL routings like below.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+
+  <span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Davis</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// do something when url was changed to &#39;/&#39;</span>
+    <span class="p">})</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/user/:name&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// do something when url was changed to &#39;/user/*&#39;</span>
+      <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">];</span> <span class="c1">// you can get the value of &#39;:name&#39; in url</span>
+    <span class="p">})</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/help&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// do something when url was changed to &#39;/help&#39;</span>
+    <span class="p">})</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/update&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// do something when url was changed to &#39;/update&#39;</span>
+    <span class="p">})</span>
+  <span class="p">})</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;routeNotFound&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">){</span>
+    <span class="c1">// if the url was not routed, this event handler will be fired.</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;this url was not routed!&#39;</span><span class="p">);</span>
+  <span class="p">});</span>
+
+<span class="p">});</span>
+</code></pre></div>
+
+
+<p>This helps you to create url based JavaScript based web apps.<br/>
+Learn more about Davis.js on the <a href="http://davisjs.com/">Davis.js's website</a>.</p>
+
+<h3>Davis'js and jQuery.LazyJaxDavis</h3>
+
+<p>jQuery.LazyJaxDavis uses Davis.js in it.<br/>
+In web apps, you almost need to assign what to do to URLs. For example, if the URL was '/help', show help page - or - if the URL was '/user/foobar', show the page of the user 'foobar' - or something like that.</p>
+
+<p>This is very useful to develop web apps. But, imagine that you create your own blog. It is ok if you have a few posts on it. But, generally you will have many many posts on your blog. So it is almost impossible to handle all urls of the pages you created.</p>
+
+<p>So, I focused on the <code>routeNotFound</code> event of Davis.js. This event is fired when the requested page was not routed. jQuery.LazyJaxDavis does ajax to the requested page even if it was unrouted.</p>
+
+<h3>Use Davis.js's routing with jQuery.LazyJaxDavis</h3>
+
+<p>JQuery.LazyJaxDavis has its own URL routing features as I wrote on "URL routing". But, if you want to use Davis.js's routing directly, you can use it like below.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">lazyJaxDavis</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">$</span><span class="p">.</span><span class="nx">LazyJaxDavis</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">router</span><span class="p">){</span>
+
+  <span class="p">...</span>
+
+  <span class="nx">router</span><span class="p">.</span><span class="nx">routeDavis</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// do something when url was changed to &#39;/&#39;</span>
+    <span class="p">})</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/user/:name&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// do something when url was changed to &#39;/user/*&#39;</span>
+      <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">];</span> <span class="c1">// you can get the value of &#39;:name&#39; in url</span>
+    <span class="p">})</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/help&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// do something when url was changed to &#39;/help&#39;</span>
+    <span class="p">})</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/update&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// do something when url was changed to &#39;/update&#39;</span>
+    <span class="p">})</span>
+  <span class="p">});</span>
+
+<span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">lazyJaxDavis</span><span class="p">.</span><span class="nx">davis</span><span class="p">);</span> <span class="c1">// davis&#39;s instance here</span>
+</code></pre></div>
+
+
+<p>You can pass the initializer to Davis with <code>routeDavis</code> method. To learn more, see the demo page below.</p>
+
+<ul>
+<li><a href="/jQuery.LazyJaxDavis/doc/pages/demos.html#davisrouting">Demo - Davis routing</a></li>
+</ul>
+
+
+			</div>
+
+			<!-- LazyJaxDavis end -->
+			</div>
+	</div>
+</div>
+
+<div class="mod-footer">
+	<small>Copyright (c) 2012 <a href="https://github.com/Takazudo">"Takazudo"</a> Takeshi Takatsudo</small>
+</div>
+
+
+<div class="mod-githubribbon">
+<a href="https://github.com/Takazudo/jQuery.LazyJaxDavis"><img src="/jQuery.LazyJaxDavis/doc/common/img/ribbon.png" alt="Fork me on GitHub"></a>
+</div>
+
+</div></body>
+</html>

@@ -1,0 +1,8 @@
+# sass cache
+*.sass-cache
+
+# jekyll cache
+_cache
+
+# node
+node_modules

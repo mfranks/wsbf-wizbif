@@ -1,0 +1,155 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery.LazyJaxDavis - URL routing</title>
+<meta name="viewport" content="width=1000">
+<link rel="stylesheet" href="/jQuery.LazyJaxDavis/doc/common/css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="/jQuery.LazyJaxDavis/lib/davis.js"></script>
+<script src="/jQuery.LazyJaxDavis/jquery.lazyjaxdavis.js"></script>
+<script src="/jQuery.LazyJaxDavis/doc/common/js/script.js"></script>
+</head>
+<body><div class="mod-all">
+
+<div class="mod-header">
+	<h1><a href="/jQuery.LazyJaxDavis/doc/">jQuery.LazyJaxDavis</a></h1>
+</div>
+
+
+<div class="mod-body">
+	<div class="mod-side">
+	<div class="mod-sidenav" id="sidenav">
+		<ul>
+			<li class="first"><a href="/jQuery.LazyJaxDavis/doc/">Introduction</a></li>
+			
+				<li class="post"><a href="/jQuery.LazyJaxDavis/doc/pages/setup.html">Setup</a></li>
+			
+				<li class="post"><a href="/jQuery.LazyJaxDavis/doc/pages/lazylinks.html">Lazy links/forms</a></li>
+			
+				<li class="post"><a href="/jQuery.LazyJaxDavis/doc/pages/anchorhandling.html">Anchor handling</a></li>
+			
+				<li class="post"><a href="/jQuery.LazyJaxDavis/doc/pages/urlrouting.html">URL routing</a></li>
+			
+				<li class="post"><a href="/jQuery.LazyJaxDavis/doc/pages/davis.html">Davis.js</a></li>
+			
+				<li class="post"><a href="/jQuery.LazyJaxDavis/doc/pages/demos.html">Demos</a></li>
+			
+		</ul>
+		<ul>
+			<li><a href="https://github.com/Takazudo/jQuery.LazyJaxDavis"><span>⇱</span> Project page</a></li>
+			<li><a href="https://github.com/Takazudo/jQuery.LazyJaxDavis/tags"><span>⇱</span> Downloads</a></li>
+		</ul>
+	</div>
+</div>
+
+	<div class="mod-main" id="main">
+			<div id="lazyjaxdavisroot">
+			<!-- LazyJaxDavis start -->
+
+			<div class="mod-article">
+				<h2>URL routing</h2>
+
+<p>You can define custom events for specific URLs using URL routing.</p>
+
+<h3>Basics</h3>
+
+<p>Pass the array of URL routing configs to the <code>route</code> method like below.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="k">new</span> <span class="nx">$</span><span class="p">.</span><span class="nx">LazyJaxDavis</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">router</span><span class="p">){</span>
+
+  <span class="p">...</span>
+
+  <span class="nx">router</span><span class="p">.</span><span class="nx">route</span><span class="p">([</span>
+    <span class="p">{</span>
+      <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/somewhere/1.html&#39;</span><span class="p">,</span>
+      <span class="nx">ignoregetvals</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nx">fetchstart</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">page</span><span class="p">){</span> <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;1.html fetchstart!&#39;</span><span class="p">);</span> <span class="p">},</span>
+      <span class="nx">fetchsuccess</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">page</span><span class="p">){</span> <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;1.html fetchsuccess!&#39;</span><span class="p">);</span> <span class="p">},</span>
+      <span class="nx">pageready</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span> <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;1.html pageready!&#39;</span><span class="p">);</span> <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nx">path</span><span class="o">:</span> <span class="sr">/anycategory\/foobar/</span><span class="p">,</span>
+      <span class="nx">fetchstart</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">page</span><span class="p">){</span> <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;2.html fetchstart!&#39;</span><span class="p">);</span> <span class="p">},</span>
+      <span class="nx">fetchsuccess</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">page</span><span class="p">){</span> <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;2.html fetchsuccess!&#39;</span><span class="p">);</span> <span class="p">},</span>
+      <span class="nx">pageready</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span> <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;2.html pageready!&#39;</span><span class="p">);</span> <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]);</span>
+
+<span class="p">});</span>
+</code></pre></div>
+
+
+<p>With URL routing, you can set events for each specific URLs. These event handlers will be fired only if the path was matched. Events below are available for this.</p>
+
+<ul>
+<li>fetchstart</li>
+<li>fetchsuccess</li>
+<li>fetchfail</li>
+<li>fetchabort</li>
+<li>pageready</li>
+</ul>
+
+
+<p>These are path-pecific ones of everyxxxxxx event which I already wrote. As <code>path</code>, you can set string or regexp to define which page to be applied.</p>
+
+<p>These routings' paths cannot be conflicted each other. This is pretty important. if jQuery.LazyJaxDavis found plural matched config about a URL, it shows error.</p>
+
+<p>If you specify <code>ignoregetvals: true</code> to any, get values like <code>?foo=bar</code> in the URL will be ignored about these path rules.</p>
+
+<h3>Transparent routing</h3>
+
+<p>As I wrote above, each routings cannnot be conflicted. But, it's possible. If you like to do complicated routing, use transparent routing feature like below. I introduced this more on <a href="/jQuery.LazyJaxDavis/doc/pages/demos.html#transparent">demo</a> page.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="k">new</span> <span class="nx">$</span><span class="p">.</span><span class="nx">LazyJaxDavis</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">router</span><span class="p">){</span>
+
+  <span class="p">...</span>
+
+  <span class="nx">router</span><span class="p">.</span><span class="nx">route</span><span class="p">([</span>
+    <span class="p">{</span>
+      <span class="nx">path</span><span class="o">:</span> <span class="sr">/\/pages\/2010\//</span><span class="p">,</span>
+      <span class="nx">fetchstart</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span> <span class="p">...</span>  <span class="p">},</span>
+      <span class="nx">fetchsuccess</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span> <span class="p">...</span>  <span class="p">},</span>
+      <span class="nx">pageready</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span> <span class="p">...</span> <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nx">path</span><span class="o">:</span> <span class="sr">/\/pages\/2011\//</span><span class="p">,</span>
+      <span class="nx">fetchstart</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span> <span class="p">...</span> <span class="p">},</span>
+      <span class="nx">fetchsuccess</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span> <span class="p">...</span> <span class="p">},</span>
+      <span class="nx">pageready</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span> <span class="p">...</span> <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]);</span>
+
+  <span class="nx">router</span><span class="p">.</span><span class="nx">routeTransparents</span><span class="p">([</span>
+    <span class="p">{</span>
+      <span class="nx">path</span><span class="o">:</span> <span class="sr">/\/pages\//</span><span class="p">,</span>
+      <span class="nx">pageready</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="cm">/* do some thing for all /pages/ here */</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]);</span>
+
+<span class="p">});</span>
+</code></pre></div>
+
+
+<p>Transparent routing is a feature for groups of pages.</p>
+
+			</div>
+
+			<!-- LazyJaxDavis end -->
+			</div>
+	</div>
+</div>
+
+<div class="mod-footer">
+	<small>Copyright (c) 2012 <a href="https://github.com/Takazudo">"Takazudo"</a> Takeshi Takatsudo</small>
+</div>
+
+
+<div class="mod-githubribbon">
+<a href="https://github.com/Takazudo/jQuery.LazyJaxDavis"><img src="/jQuery.LazyJaxDavis/doc/common/img/ribbon.png" alt="Fork me on GitHub"></a>
+</div>
+
+</div></body>
+</html>

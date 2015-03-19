@@ -1,0 +1,59 @@
+<?php
+
+require_once('../conn.php');
+require_once('../utils_ccl.php');
+
+$nowPlaying = 0; /** change to 1 if you want carts to show up to listeners **/
+
+if(!isset($_GET['cartid']))
+	die('ERROR: No cart ID given!');
+sanitizeInput();
+
+$cartid = $_GET['cartid'];
+
+
+
+$q = "SELECT sID FROM lbshow WHERE sEndTime=0 ORDER BY sID DESC LIMIT 1";
+$rs = mysql_query($q) or die(mysql_error());
+$showid = "";
+if(mysql_num_rows($rs) == 1) {
+	$rs = mysql_fetch_array($rs, MYSQL_ASSOC);
+	$showid = $rs['sID'];
+}
+
+
+
+$q = "SELECT * FROM libcart WHERE cartID='$cartid' LIMIT 1";
+$rs = mysql_query($q) or die(mysql_error());
+$rs = mysql_fetch_array($rs, MYSQL_ASSOC);
+
+$title = $rs['cartTitle'];
+$issuer = $rs['cartIssuer'];
+$type = $rs['cartType'];
+
+$q = "SELECT * FROM lbplaylist WHERE p_sID='$showid' ORDER BY pNumInShow DESC LIMIT 1";
+$rs = mysql_query($q) or die(mysql_error());
+$rs = mysql_fetch_array($rs, MYSQL_ASSOC);
+$numinshow = (int)($rs['pNumInShow']) + 1;
+
+
+if($nowPlaying) {
+	$q = "UPDATE lbplaylist SET pCurrentlyPlaying=0 WHERE pCurrentlyPlaying=1";
+	mysql_query($q);
+}
+
+$query = "INSERT INTO lbplaylist (p_sID, pNumInShow, pAlbumNo, pRotation, 
+pArtistName, pSongTitle, pCurrentlyPlaying) VALUES 
+('$showid', '$numinshow', '$cartid', '$type', '$issuer', '$title', '$nowPlaying')";
+
+
+
+echo "Hello! You are logging number $cartid\n";
+echo "Show ID is $showid\n";
+
+if(mysql_query($query))
+	echo "Success!";
+else echo mysql_error();
+
+//lbplaylist: p_sID, pNumInShow, pAlbumNo, pTrackNo, pGenre, pRotation, 
+//pArtistName, pSongTitle, pAlbumTitle, pRecordLabel, pCurrentlyPlaying
