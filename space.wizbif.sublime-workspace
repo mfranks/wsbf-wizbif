@@ -1,0 +1,460 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fun",
+				"function"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"li",
+				"li"
+			],
+			[
+				"rotation",
+				"rotation"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"w",
+				"w"
+			],
+			[
+				"name",
+				"name"
+			],
+			[
+				"N",
+				"NULL"
+			],
+			[
+				"coun",
+				"getPageCount"
+			],
+			[
+				"d",
+				"d"
+			],
+			[
+				"splash",
+				"splash"
+			],
+			[
+				"a",
+				"a"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"padding",
+				"padding-bottom"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"b",
+				"padding-bottom"
+			],
+			[
+				"border",
+				"border-bottom"
+			],
+			[
+				"p",
+				"position"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"ba",
+				"background-clip"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"background",
+				"background-color"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/maxfranks/Downloads/pdfjs-1.0.1040-dist 2/web/viewer.html",
+			"settings":
+			{
+				"buffer_size": 19518,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<!DOCTYPE html>\n<html lang=\"en\">\n 	<head>     \n    	<script src='//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>     \n      	<meta charset='utf-8'>     \n      	<title>WIZBIZ</title>     \n      	<link rel='stylesheet' href='p_style.css' />  \n      	<link rel='stylesheet' href='viewer.css' />  \n\n  		<script src=\"compatibility.js\"></script>\n		<link rel=\"resource\" type=\"application/l10n\" href=\"locale/locale.properties\"/>\n		<script src=\"l10n.js\"></script>\n		<script src=\"../js/pdf.js\"></script>\n	    <script src=\"debugger.js\"></script>\n	    <script src=\"viewer.js\"></script>\n    </head>     \n    <body>     \n      <div id='container'>     \n        <div id = 'header'>\n          <h1>WSBF-FM Clemson</h1>   \n          <h3>Welcome, DJ  D</h3>  \n        </div>   \n        <div id='actions_container'>\n          <a live = true href='p_library.php'>Library</a> <br>    \n          <a href='fishbowl/fishbowl_app.php'>Fishbowl points</a><br>    \n          <a href='show_sub/show_sub.php'>Show subs</a><br>       \n          <a href='archives'>Archives</a><br>      \n          <a href=\\\"rotation_control.php\\\">Labels/Rotation</a><br>\n          <a href=\\\"import/import_main.php\\\">Import Music</a><br> \n          <a href='schedule_addshow.php'>Show schedule</a><br>\n          <a href='dick'>Engineering Blog</a><br>\n          <a href=\\\"weekly_top_20_tracks.php\\\">Weekly top 20</a><br>\n          <a href=\\\"profiles/form_edit_profile.php\\\">Edit DJ info</a><br>\n          <a href=\\\"profiles/view_show_profiles.php\\\">Show profiles</a><br>\n          <a href=\\\"schedule/schedule.php\\\">Show schedule</a><br> \n          <a href=\\\"reviewsByActiveDJs.php\\\">Reviews</a><br>\n          <a href=\\\"reviewsByActiveDJs.php\\\">Handbook</a><br>\n          <a href=\\\"logout.php\\\">Log out</a>        \n        </div>      \n        <div id = 'center'>\n			    <div id=\"outerContainer\">\n\n			      <div id=\"sidebarContainer\">\n			        <div id=\"toolbarSidebar\">\n			          <div class=\"splitToolbarButton toggled\">\n			            <button id=\"viewThumbnail\" class=\"toolbarButton group toggled\" title=\"Show Thumbnails\" tabindex=\"2\" data-l10n-id=\"thumbs\">\n			               <span data-l10n-id=\"thumbs_label\">Thumbnails</span>\n			            </button>\n			            <button id=\"viewOutline\" class=\"toolbarButton group\" title=\"Show Document Outline\" tabindex=\"3\" data-l10n-id=\"outline\">\n			               <span data-l10n-id=\"outline_label\">Document Outline</span>\n			            </button>\n			            <button id=\"viewAttachments\" class=\"toolbarButton group\" title=\"Show Attachments\" tabindex=\"4\" data-l10n-id=\"attachments\">\n			               <span data-l10n-id=\"attachments_label\">Attachments</span>\n			            </button>\n			          </div>\n			        </div>\n			        <div id=\"sidebarContent\">\n			          <div id=\"thumbnailView\">\n			          </div>\n			          <div id=\"outlineView\" class=\"hidden\">\n			          </div>\n			          <div id=\"attachmentsView\" class=\"hidden\">\n			          </div>\n			        </div>\n			      </div>  <!-- sidebarContainer -->\n\n			      <div id=\"mainContainer\">\n			        <div class=\"findbar hidden doorHanger hiddenSmallView\" id=\"findbar\">\n			          <label for=\"findInput\" class=\"toolbarLabel\" data-l10n-id=\"find_label\">Find:</label>\n			          <input id=\"findInput\" class=\"toolbarField\" tabindex=\"91\">\n			          <div class=\"splitToolbarButton\">\n			            <button class=\"toolbarButton findPrevious\" title=\"\" id=\"findPrevious\" tabindex=\"92\" data-l10n-id=\"find_previous\">\n			              <span data-l10n-id=\"find_previous_label\">Previous</span>\n			            </button>\n			            <div class=\"splitToolbarButtonSeparator\"></div>\n			            <button class=\"toolbarButton findNext\" title=\"\" id=\"findNext\" tabindex=\"93\" data-l10n-id=\"find_next\">\n			              <span data-l10n-id=\"find_next_label\">Next</span>\n			            </button>\n			          </div>\n			          <input type=\"checkbox\" id=\"findHighlightAll\" class=\"toolbarField\">\n			          <label for=\"findHighlightAll\" class=\"toolbarLabel\" tabindex=\"94\" data-l10n-id=\"find_highlight\">Highlight all</label>\n			          <input type=\"checkbox\" id=\"findMatchCase\" class=\"toolbarField\">\n			          <label for=\"findMatchCase\" class=\"toolbarLabel\" tabindex=\"95\" data-l10n-id=\"find_match_case_label\">Match case</label>\n			          <span id=\"findMsg\" class=\"toolbarLabel\"></span>\n			        </div>  <!-- findbar -->\n\n			        <div id=\"secondaryToolbar\" class=\"secondaryToolbar hidden doorHangerRight\">\n			          <div id=\"secondaryToolbarButtonContainer\">\n			            <button id=\"secondaryPresentationMode\" class=\"secondaryToolbarButton presentationMode visibleLargeView\" title=\"Switch to Presentation Mode\" tabindex=\"51\" data-l10n-id=\"presentation_mode\">\n			              <span data-l10n-id=\"presentation_mode_label\">Presentation Mode</span>\n			            </button>\n\n			            <button id=\"secondaryOpenFile\" class=\"secondaryToolbarButton openFile visibleLargeView\" title=\"Open File\" tabindex=\"52\" data-l10n-id=\"open_file\">\n			              <span data-l10n-id=\"open_file_label\">Open</span>\n			            </button>\n\n			            <button id=\"secondaryPrint\" class=\"secondaryToolbarButton print visibleMediumView\" title=\"Print\" tabindex=\"53\" data-l10n-id=\"print\">\n			              <span data-l10n-id=\"print_label\">Print</span>\n			            </button>\n\n			            <button id=\"secondaryDownload\" class=\"secondaryToolbarButton download visibleMediumView\" title=\"Download\" tabindex=\"54\" data-l10n-id=\"download\">\n			              <span data-l10n-id=\"download_label\">Download</span>\n			            </button>\n\n			            <a href=\"#\" id=\"secondaryViewBookmark\" class=\"secondaryToolbarButton bookmark visibleSmallView\" title=\"Current view (copy or open in new window)\" tabindex=\"55\" data-l10n-id=\"bookmark\">\n			              <span data-l10n-id=\"bookmark_label\">Current View</span>\n			            </a>\n\n			            <div class=\"horizontalToolbarSeparator visibleLargeView\"></div>\n\n			            <button id=\"firstPage\" class=\"secondaryToolbarButton firstPage\" title=\"Go to First Page\" tabindex=\"56\" data-l10n-id=\"first_page\">\n			              <span data-l10n-id=\"first_page_label\">Go to First Page</span>\n			            </button>\n			            <button id=\"lastPage\" class=\"secondaryToolbarButton lastPage\" title=\"Go to Last Page\" tabindex=\"57\" data-l10n-id=\"last_page\">\n			              <span data-l10n-id=\"last_page_label\">Go to Last Page</span>\n			            </button>\n\n			            <div class=\"horizontalToolbarSeparator\"></div>\n\n			            <button id=\"pageRotateCw\" class=\"secondaryToolbarButton rotateCw\" title=\"Rotate Clockwise\" tabindex=\"58\" data-l10n-id=\"page_rotate_cw\">\n			              <span data-l10n-id=\"page_rotate_cw_label\">Rotate Clockwise</span>\n			            </button>\n			            <button id=\"pageRotateCcw\" class=\"secondaryToolbarButton rotateCcw\" title=\"Rotate Counterclockwise\" tabindex=\"59\" data-l10n-id=\"page_rotate_ccw\">\n			              <span data-l10n-id=\"page_rotate_ccw_label\">Rotate Counterclockwise</span>\n			            </button>\n\n			            <div class=\"horizontalToolbarSeparator\"></div>\n\n			            <button id=\"toggleHandTool\" class=\"secondaryToolbarButton handTool\" title=\"Enable hand tool\" tabindex=\"60\" data-l10n-id=\"hand_tool_enable\">\n			              <span data-l10n-id=\"hand_tool_enable_label\">Enable hand tool</span>\n			            </button>\n			            \n			            <div class=\"horizontalToolbarSeparator\"></div>\n\n			            <button id=\"documentProperties\" class=\"secondaryToolbarButton documentProperties\" title=\"Document Properties…\" tabindex=\"61\" data-l10n-id=\"document_properties\">\n			              <span data-l10n-id=\"document_properties_label\">Document Properties…</span>\n			            </button>\n			          </div>\n			        </div>  <!-- secondaryToolbar -->\n\n			        <div class=\"toolbar\">\n			          <div id=\"toolbarContainer\">\n			            <div id=\"toolbarViewer\">\n			              <div id=\"toolbarViewerLeft\">\n			                <button id=\"sidebarToggle\" class=\"toolbarButton\" title=\"Toggle Sidebar\" tabindex=\"11\" data-l10n-id=\"toggle_sidebar\">\n			                  <span data-l10n-id=\"toggle_sidebar_label\">Toggle Sidebar</span>\n			                </button>\n			                <div class=\"toolbarButtonSpacer\"></div>\n			                <button id=\"viewFind\" class=\"toolbarButton group hiddenSmallView\" title=\"Find in Document\" tabindex=\"12\" data-l10n-id=\"findbar\">\n			                   <span data-l10n-id=\"findbar_label\">Find</span>\n			                </button>\n			                <div class=\"splitToolbarButton\">\n			                  <button class=\"toolbarButton pageUp\" title=\"Previous Page\" id=\"previous\" tabindex=\"13\" data-l10n-id=\"previous\">\n			                    <span data-l10n-id=\"previous_label\">Previous</span>\n			                  </button>\n			                  <div class=\"splitToolbarButtonSeparator\"></div>\n			                  <button class=\"toolbarButton pageDown\" title=\"Next Page\" id=\"next\" tabindex=\"14\" data-l10n-id=\"next\">\n			                    <span data-l10n-id=\"next_label\">Next</span>\n			                  </button>\n			                </div>\n			                <label id=\"pageNumberLabel\" class=\"toolbarLabel\" for=\"pageNumber\" data-l10n-id=\"page_label\">Page: </label>\n			                <input type=\"number\" id=\"pageNumber\" class=\"toolbarField pageNumber\" value=\"1\" size=\"4\" min=\"1\" tabindex=\"15\">\n			                <span id=\"numPages\" class=\"toolbarLabel\"></span>\n			              </div>\n			              <div id=\"toolbarViewerRight\">\n			                <button id=\"presentationMode\" class=\"toolbarButton presentationMode hiddenLargeView\" title=\"Switch to Presentation Mode\" tabindex=\"31\" data-l10n-id=\"presentation_mode\">\n			                  <span data-l10n-id=\"presentation_mode_label\">Presentation Mode</span>\n			                </button>\n\n			                <button id=\"openFile\" class=\"toolbarButton openFile hiddenLargeView\" title=\"Open File\" tabindex=\"32\" data-l10n-id=\"open_file\">\n			                  <span data-l10n-id=\"open_file_label\">Open</span>\n			                </button>\n\n			                <button id=\"print\" class=\"toolbarButton print hiddenMediumView\" title=\"Print\" tabindex=\"33\" data-l10n-id=\"print\">\n			                  <span data-l10n-id=\"print_label\">Print</span>\n			                </button>\n\n			                <button id=\"download\" class=\"toolbarButton download hiddenMediumView\" title=\"Download\" tabindex=\"34\" data-l10n-id=\"download\">\n			                  <span data-l10n-id=\"download_label\">Download</span>\n			                </button>\n			                <!-- <div class=\"toolbarButtonSpacer\"></div> -->\n			                <a href=\"#\" id=\"viewBookmark\" class=\"toolbarButton bookmark hiddenSmallView\" title=\"Current view (copy or open in new window)\" tabindex=\"35\" data-l10n-id=\"bookmark\">\n			                  <span data-l10n-id=\"bookmark_label\">Current View</span>\n			                </a>\n\n			                <div class=\"verticalToolbarSeparator hiddenSmallView\"></div>\n			                \n			                <button id=\"secondaryToolbarToggle\" class=\"toolbarButton\" title=\"Tools\" tabindex=\"36\" data-l10n-id=\"tools\">\n			                  <span data-l10n-id=\"tools_label\">Tools</span>\n			                </button> \n			              </div>\n			              <div class=\"outerCenter\">\n			                <div class=\"innerCenter\" id=\"toolbarViewerMiddle\">\n			                  <div class=\"splitToolbarButton\">\n			                    <button id=\"zoomOut\" class=\"toolbarButton zoomOut\" title=\"Zoom Out\" tabindex=\"21\" data-l10n-id=\"zoom_out\">\n			                      <span data-l10n-id=\"zoom_out_label\">Zoom Out</span>\n			                    </button>\n			                    <div class=\"splitToolbarButtonSeparator\"></div>\n			                    <button id=\"zoomIn\" class=\"toolbarButton zoomIn\" title=\"Zoom In\" tabindex=\"22\" data-l10n-id=\"zoom_in\">\n			                      <span data-l10n-id=\"zoom_in_label\">Zoom In</span>\n			                     </button>\n			                  </div>\n			                  <span id=\"scaleSelectContainer\" class=\"dropdownToolbarButton\">\n			                     <select id=\"scaleSelect\" title=\"Zoom\" tabindex=\"23\" data-l10n-id=\"zoom\">\n			                      <option id=\"pageAutoOption\" title=\"\" value=\"auto\" selected=\"selected\" data-l10n-id=\"page_scale_auto\">Automatic Zoom</option>\n			                      <option id=\"pageActualOption\" title=\"\" value=\"page-actual\" data-l10n-id=\"page_scale_actual\">Actual Size</option>\n			                      <option id=\"pageFitOption\" title=\"\" value=\"page-fit\" data-l10n-id=\"page_scale_fit\">Fit Page</option>\n			                      <option id=\"pageWidthOption\" title=\"\" value=\"page-width\" data-l10n-id=\"page_scale_width\">Full Width</option>\n			                      <option id=\"customScaleOption\" title=\"\" value=\"custom\"></option>\n			                      <option title=\"\" value=\"0.5\" data-l10n-id=\"page_scale_percent\" data-l10n-args='{ \"scale\": 50 }'>50%</option>\n			                      <option title=\"\" value=\"0.75\" data-l10n-id=\"page_scale_percent\" data-l10n-args='{ \"scale\": 75 }'>75%</option>\n			                      <option title=\"\" value=\"1\" data-l10n-id=\"page_scale_percent\" data-l10n-args='{ \"scale\": 100 }'>100%</option>\n			                      <option title=\"\" value=\"1.25\" data-l10n-id=\"page_scale_percent\" data-l10n-args='{ \"scale\": 125 }'>125%</option>\n			                      <option title=\"\" value=\"1.5\" data-l10n-id=\"page_scale_percent\" data-l10n-args='{ \"scale\": 150 }'>150%</option>\n			                      <option title=\"\" value=\"2\" data-l10n-id=\"page_scale_percent\" data-l10n-args='{ \"scale\": 200 }'>200%</option>\n			                      <option title=\"\" value=\"3\" data-l10n-id=\"page_scale_percent\" data-l10n-args='{ \"scale\": 300 }'>300%</option>\n			                      <option title=\"\" value=\"4\" data-l10n-id=\"page_scale_percent\" data-l10n-args='{ \"scale\": 400 }'>400%</option>\n			                    </select>\n			                  </span>\n			                </div>\n			              </div>\n			            </div>\n			            <div id=\"loadingBar\">\n			              <div class=\"progress\">\n			                <div class=\"glimmer\">\n			                </div>\n			              </div>\n			            </div>\n			          </div>\n			        </div>\n\n			        <menu type=\"context\" id=\"viewerContextMenu\">\n			          <menuitem id=\"contextFirstPage\" label=\"First Page\"\n			                    data-l10n-id=\"first_page\"></menuitem>\n			          <menuitem id=\"contextLastPage\" label=\"Last Page\"\n			                    data-l10n-id=\"last_page\"></menuitem>\n			          <menuitem id=\"contextPageRotateCw\" label=\"Rotate Clockwise\"\n			                    data-l10n-id=\"page_rotate_cw\"></menuitem>\n			          <menuitem id=\"contextPageRotateCcw\" label=\"Rotate Counter-Clockwise\"\n			                    data-l10n-id=\"page_rotate_ccw\"></menuitem>\n			        </menu>\n\n			        <div id=\"viewerContainer\" tabindex=\"0\">\n			          <div id=\"viewer\" class=\"pdfViewer\"></div>\n			        </div>\n\n			        <div id=\"errorWrapper\" hidden='true'>\n			          <div id=\"errorMessageLeft\">\n			            <span id=\"errorMessage\"></span>\n			            <button id=\"errorShowMore\" data-l10n-id=\"error_more_info\">\n			              More Information\n			            </button>\n			            <button id=\"errorShowLess\" data-l10n-id=\"error_less_info\" hidden='true'>\n			              Less Information\n			            </button>\n			          </div>\n			          <div id=\"errorMessageRight\">\n			            <button id=\"errorClose\" data-l10n-id=\"error_close\">\n			              Close\n			            </button>\n			          </div>\n			          <div class=\"clearBoth\"></div>\n			          <textarea id=\"errorMoreInfo\" hidden='true' readonly=\"readonly\"></textarea>\n			        </div>\n			      </div> <!-- mainContainer -->\n\n			      <div id=\"overlayContainer\" class=\"hidden\">\n			        <div id=\"passwordOverlay\" class=\"container hidden\">\n			          <div class=\"dialog\">\n			            <div class=\"row\">\n			              <p id=\"passwordText\" data-l10n-id=\"password_label\">Enter the password to open this PDF file:</p>\n			            </div>\n			            <div class=\"row\">\n			              <input type=\"password\" id=\"password\" class=\"toolbarField\" />\n			            </div>\n			            <div class=\"buttonRow\">\n			              <button id=\"passwordCancel\" class=\"overlayButton\"><span data-l10n-id=\"password_cancel\">Cancel</span></button>\n			              <button id=\"passwordSubmit\" class=\"overlayButton\"><span data-l10n-id=\"password_ok\">OK</span></button>\n			            </div>\n			          </div>\n			        </div>\n			        <div id=\"documentPropertiesOverlay\" class=\"container hidden\">\n			          <div class=\"dialog\">\n			            <div class=\"row\">\n			              <span data-l10n-id=\"document_properties_file_name\">File name:</span> <p id=\"fileNameField\">-</p>\n			            </div>\n			            <div class=\"row\">\n			              <span data-l10n-id=\"document_properties_file_size\">File size:</span> <p id=\"fileSizeField\">-</p>\n			            </div>\n			            <div class=\"separator\"></div>\n			            <div class=\"row\">\n			              <span data-l10n-id=\"document_properties_title\">Title:</span> <p id=\"titleField\">-</p>\n			            </div>\n			            <div class=\"row\">\n			              <span data-l10n-id=\"document_properties_author\">Author:</span> <p id=\"authorField\">-</p>\n			            </div>\n			            <div class=\"row\">\n			              <span data-l10n-id=\"document_properties_subject\">Subject:</span> <p id=\"subjectField\">-</p>\n			            </div>\n			            <div class=\"row\">\n			              <span data-l10n-id=\"document_properties_keywords\">Keywords:</span> <p id=\"keywordsField\">-</p>\n			            </div>\n			            <div class=\"row\">\n			              <span data-l10n-id=\"document_properties_creation_date\">Creation Date:</span> <p id=\"creationDateField\">-</p>\n			            </div>\n			            <div class=\"row\">\n			              <span data-l10n-id=\"document_properties_modification_date\">Modification Date:</span> <p id=\"modificationDateField\">-</p>\n			            </div>\n			            <div class=\"row\">\n			              <span data-l10n-id=\"document_properties_creator\">Creator:</span> <p id=\"creatorField\">-</p>\n			            </div>\n			            <div class=\"separator\"></div>\n			            <div class=\"row\">\n			              <span data-l10n-id=\"document_properties_producer\">PDF Producer:</span> <p id=\"producerField\">-</p>\n			            </div>\n			            <div class=\"row\">\n			              <span data-l10n-id=\"document_properties_version\">PDF Version:</span> <p id=\"versionField\">-</p>\n			            </div>\n			            <div class=\"row\">\n			              <span data-l10n-id=\"document_properties_page_count\">Page Count:</span> <p id=\"pageCountField\">-</p>\n			            </div>\n			            <div class=\"buttonRow\">\n			              <button id=\"documentPropertiesClose\" class=\"overlayButton\"><span data-l10n-id=\"document_properties_close\">Close</span></button>\n			            </div>\n			          </div>\n			        </div>\n			      </div>  <!-- overlayContainer -->\n\n			    </div> <!-- outerContainer -->\n			    <div id=\"printContainer\"></div>\n			<div id=\"mozPrintCallback-shim\" hidden>\n			  <div class=\"mozPrintCallback-dialog-box\">\n			    <!-- TODO: Localise the following strings -->\n			    Preparing document for printing...\n			    <div class=\"progress-row\">\n			      <progress value=\"0\" max=\"100\"></progress>\n			      <span class=\"relative-progress\">0%</span>\n			    </div>\n			    <div class=\"progress-actions\">\n			      <input type=\"button\" value=\"Cancel\" class=\"mozPrintCallback-cancel\">\n			    </div>\n			  </div>\n			</div>\n\n\n        </div>  \n        <div id = 'footer'>\n          <a>|> BIRBS w/ Rob & Katie  < 9</a>\n        </div>\n      </div>  \n  </body>\n  <script>\n  	'use strict';\n\n	//\n	// Fetch the PDF document from the URL using promises\n	//\n	PDFJS.getDocument('handbookspring2014.pdf').then(function(pdf) {\n	  // Using promise to fetch the page\n	  pdf.getPage(1).then(function(page) {\n	    var scale = 1.5;\n	    var viewport = page.getViewport(scale);\n\n	    //\n	    // Prepare canvas using PDF page dimensions\n	    //\n	    var canvas = document.getElementById('the-canvas');\n	    var context = canvas.getContext('2d');\n	    canvas.height = viewport.height;\n	    canvas.width = viewport.width;\n\n	    //\n	    // Render PDF page into canvas context\n	    //\n	    var renderContext = {\n	      canvasContext: context,\n	      viewport: viewport\n	    };\n	    page.render(renderContext);\n	  });\n	});\n  </script>\n</html>\n\n",
+			"file": "handbook/p_handbook.html",
+			"file_size": 20622,
+			"file_write_time": 1426581938000000,
+			"settings":
+			{
+				"buffer_size": 20616,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "/* Copyright 2014 Mozilla Foundation\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *     http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\n.textLayer {\n  position: absolute;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  overflow: hidden;\n}\n\n.textLayer > div {\n  color: transparent;\n  position: absolute;\n  white-space: pre;\n  cursor: text;\n  -webkit-transform-origin: 0% 0%;\n  -moz-transform-origin: 0% 0%;\n  -o-transform-origin: 0% 0%;\n  -ms-transform-origin: 0% 0%;\n  transform-origin: 0% 0%;\n}\n\n.textLayer .highlight {\n  margin: -1px;\n  padding: 1px;\n\n  background-color: rgb(180, 0, 170);\n  border-radius: 4px;\n}\n\n.textLayer .highlight.begin {\n  border-radius: 4px 0px 0px 4px;\n}\n\n.textLayer .highlight.end {\n  border-radius: 0px 4px 4px 0px;\n}\n\n.textLayer .highlight.middle {\n  border-radius: 0px;\n}\n\n.textLayer .highlight.selected {\n  background-color: rgb(0, 100, 0);\n}\n\n.pdfViewer .canvasWrapper {\n  overflow: hidden;\n}\n\n.pdfViewer .page {\n  direction: ltr;\n  width: 816px;\n  height: 1056px;\n  margin: 1px auto -8px auto;\n  position: relative;\n  overflow: visible;\n  border: 9px solid transparent;\n  background-clip: content-box;\n  border-image: url(images/shadow.png) 9 9 repeat;\n  background-color: white;\n}\n\n.pdfViewer .page canvas {\n  margin: 0;\n  display: block;\n}\n\n.pdfViewer .page .loadingIcon {\n  position: absolute;\n  display: block;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  background: url('images/loading-icon.gif') center no-repeat;\n}\n\n.pdfViewer .page .annotLink > a:hover {\n  opacity: 0.2;\n  background: #ff0;\n  box-shadow: 0px 2px 10px #ff0;\n}\n\n:-webkit-full-screen .pdfViewer .page {\n  margin-bottom: 100%;\n  border: 0;\n}\n\n:-moz-full-screen .pdfViewer .page {\n  margin-bottom: 100%;\n  border: 0;\n}\n\n:-ms-fullscreen .pdfViewer .page {\n  margin-bottom: 100% !important;\n  border: 0;\n}\n\n:fullscreen .pdfViewer .page {\n  margin-bottom: 100%;\n  border: 0;\n}\n\n.pdfViewer .page .annotText > img {\n  position: absolute;\n  cursor: pointer;\n}\n\n.pdfViewer .page .annotTextContentWrapper {\n  position: absolute;\n  width: 20em;\n}\n\n.pdfViewer .page .annotTextContent {\n  z-index: 200;\n  float: left;\n  max-width: 20em;\n  background-color: #FFFF99;\n  box-shadow: 0px 2px 5px #333;\n  border-radius: 2px;\n  padding: 0.6em;\n  cursor: pointer;\n}\n\n.pdfViewer .page .annotTextContent > h1 {\n  font-size: 1em;\n  border-bottom: 1px solid #000000;\n  padding-bottom: 0.2em;\n}\n\n.pdfViewer .page .annotTextContent > p {\n  padding-top: 0.2em;\n}\n\n.pdfViewer .page .annotLink > a {\n  position: absolute;\n  font-size: 1em;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n\n.pdfViewer .page .annotLink > a /* -ms-a */  {\n  background: url(\"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAA\\\n                   LAAAAAABAAEAAAIBRAA7\") 0 0 repeat;\n}\n\n* {\n  padding: 0;\n  margin: 0;\n}\n\nhtml {\n  height: 100%;\n  /* Font size is needed to make the activity bar the correct size. */\n  font-size: 10px;\n}\n\nbody {\n  height: 100%;\n  background-color: #404040;\n  background-image: url(images/texture.png);\n}\n\nbody,\ninput,\nbutton,\nselect {\n  font: message-box;\n  outline: none;\n}\n\n.hidden {\n  display: none !important;\n}\n[hidden] {\n  display: none !important;\n}\n\n#viewerContainer:-webkit-full-screen {\n  top: 0px;\n  border-top: 2px solid transparent;\n  background-color: #000;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  cursor: none;\n  -webkit-user-select: none;\n}\n\n#viewerContainer:-moz-full-screen {\n  top: 0px;\n  border-top: 2px solid transparent;\n  background-color: #000;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  cursor: none;\n  -moz-user-select: none;\n}\n\n#viewerContainer:-ms-fullscreen {\n  top: 0px !important;\n  border-top: 2px solid transparent;\n  width: 100%;\n  height: 100%;\n  overflow: hidden !important;\n  cursor: none;\n  -ms-user-select: none;\n}\n\n#viewerContainer:-ms-fullscreen::-ms-backdrop {\n  background-color: #000;\n}\n\n#viewerContainer:fullscreen {\n  top: 0px;\n  border-top: 2px solid transparent;\n  background-color: #000;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  cursor: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n}\n\n:-webkit-full-screen a:not(.internalLink) {\n  display: none;\n}\n\n:-moz-full-screen a:not(.internalLink) {\n  display: none;\n}\n\n:-ms-fullscreen a:not(.internalLink) {\n  display: none !important;\n}\n\n:fullscreen a:not(.internalLink) {\n  display: none;\n}\n\n:-webkit-full-screen .textLayer > div {\n  cursor: none;\n}\n\n:-moz-full-screen .textLayer > div {\n  cursor: none;\n}\n\n:fullscreen .textLayer > div {\n  cursor: none;\n}\n\n#viewerContainer.presentationControls,\n#viewerContainer.presentationControls .textLayer > div {\n  cursor: default;\n}\n\n/* outer/inner center provides horizontal center */\n.outerCenter {\n  pointer-events: none;\n  position: relative;\n}\nhtml[dir='ltr'] .outerCenter {\n  float: right;\n  right: 50%;\n}\nhtml[dir='rtl'] .outerCenter {\n  float: left;\n  left: 50%;\n}\n.innerCenter {\n  pointer-events: auto;\n  position: relative;\n}\nhtml[dir='ltr'] .innerCenter {\n  float: right;\n  right: -50%;\n}\nhtml[dir='rtl'] .innerCenter {\n  float: left;\n  left: -50%;\n}\n\n#outerContainer {\n  width: 100%;\n  height: 100%;\n  position: relative;\n}\n\n#sidebarContainer {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  width: 200px;\n  visibility: hidden;\n  -webkit-transition-duration: 200ms;\n  -webkit-transition-timing-function: ease;\n  transition-duration: 200ms;\n  transition-timing-function: ease;\n\n}\nhtml[dir='ltr'] #sidebarContainer {\n  -webkit-transition-property: left;\n  transition-property: left;\n  left: -200px;\n}\nhtml[dir='rtl'] #sidebarContainer {\n  -webkit-transition-property: right;\n  transition-property: right;\n  right: -200px;\n}\n\n#outerContainer.sidebarMoving > #sidebarContainer,\n#outerContainer.sidebarOpen > #sidebarContainer {\n  visibility: visible;\n}\nhtml[dir='ltr'] #outerContainer.sidebarOpen > #sidebarContainer {\n  left: 0px;\n}\nhtml[dir='rtl'] #outerContainer.sidebarOpen > #sidebarContainer {\n  right: 0px;\n}\n\n#mainContainer {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  min-width: 320px;\n  -webkit-transition-duration: 200ms;\n  -webkit-transition-timing-function: ease;\n  transition-duration: 200ms;\n  transition-timing-function: ease;\n}\nhtml[dir='ltr'] #outerContainer.sidebarOpen > #mainContainer {\n  -webkit-transition-property: left;\n  transition-property: left;\n  left: 200px;\n}\nhtml[dir='rtl'] #outerContainer.sidebarOpen > #mainContainer {\n  -webkit-transition-property: right;\n  transition-property: right;\n  right: 200px;\n}\n\n#sidebarContent {\n  top: 32px;\n  bottom: 0;\n  overflow: auto;\n  -webkit-overflow-scrolling: touch;\n  position: absolute;\n  width: 200px;\n  background-color: hsla(0,0%,0%,.1);\n}\nhtml[dir='ltr'] #sidebarContent {\n  left: 0;\n  box-shadow: inset -1px 0 0 hsla(0,0%,0%,.25);\n}\nhtml[dir='rtl'] #sidebarContent {\n  right: 0;\n  box-shadow: inset 1px 0 0 hsla(0,0%,0%,.25);\n}\n\n#viewerContainer {\n  overflow: auto;\n  -webkit-overflow-scrolling: touch;\n  position: absolute;\n  top: 32px;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  outline: none;\n}\nhtml[dir='ltr'] #viewerContainer {\n  box-shadow: inset 1px 0 0 hsla(0,0%,100%,.05);\n}\nhtml[dir='rtl'] #viewerContainer {\n  box-shadow: inset -1px 0 0 hsla(0,0%,100%,.05);\n}\n\n.toolbar {\n  position: relative;\n  left: 0;\n  right: 0;\n  z-index: 9999;\n  cursor: default;\n}\n\n#toolbarContainer {\n  width: 100%;\n}\n\n#toolbarSidebar {\n  width: 200px;\n  height: 32px;\n  background-color: #424242; /* fallback */\n  background-image: url(images/texture.png),\n                    linear-gradient(hsla(0,0%,30%,.99), hsla(0,0%,25%,.95));\n}\nhtml[dir='ltr'] #toolbarSidebar {\n  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25),\n              inset 0 -1px 0 hsla(0,0%,100%,.05),\n              0 1px 0 hsla(0,0%,0%,.15),\n              0 0 1px hsla(0,0%,0%,.1);\n}\nhtml[dir='rtl'] #toolbarSidebar {\n  box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.25),\n              inset 0 1px 0 hsla(0,0%,100%,.05),\n              0 1px 0 hsla(0,0%,0%,.15),\n              0 0 1px hsla(0,0%,0%,.1);\n}\n\n#toolbarContainer, .findbar, .secondaryToolbar {\n  position: relative;\n  height: 32px;\n  background-color: #474747; /* fallback */\n  background-image: url(images/texture.png),\n                    linear-gradient(hsla(0,0%,32%,.99), hsla(0,0%,27%,.95));\n}\nhtml[dir='ltr'] #toolbarContainer, .findbar, .secondaryToolbar {\n  box-shadow: inset 1px 0 0 hsla(0,0%,100%,.08),\n              inset 0 1px 1px hsla(0,0%,0%,.15),\n              inset 0 -1px 0 hsla(0,0%,100%,.05),\n              0 1px 0 hsla(0,0%,0%,.15),\n              0 1px 1px hsla(0,0%,0%,.1);\n}\nhtml[dir='rtl'] #toolbarContainer, .findbar, .secondaryToolbar {\n  box-shadow: inset -1px 0 0 hsla(0,0%,100%,.08),\n              inset 0 1px 1px hsla(0,0%,0%,.15),\n              inset 0 -1px 0 hsla(0,0%,100%,.05),\n              0 1px 0 hsla(0,0%,0%,.15),\n              0 1px 1px hsla(0,0%,0%,.1);\n}\n\n#toolbarViewer {\n  height: 32px;\n}\n\n#loadingBar {\n  position: relative;\n  width: 100%;\n  height: 4px;\n  background-color: #333;\n  border-bottom: 1px solid #333;\n}\n\n#loadingBar .progress {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 0%;\n  height: 100%;\n  background-color: #ddd;\n  overflow: hidden;\n  -webkit-transition: width 200ms;\n  transition: width 200ms;\n}\n\n@-webkit-keyframes progressIndeterminate {\n  0% { left: 0%; }\n  50% { left: 100%; }\n  100% { left: 100%; }\n}\n\n@keyframes progressIndeterminate {\n  0% { left: 0%; }\n  50% { left: 100%; }\n  100% { left: 100%; }\n}\n\n#loadingBar .progress.indeterminate {\n  background-color: #999;\n  -webkit-transition: none;\n  transition: none;\n}\n\n#loadingBar .indeterminate .glimmer {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 100%;\n  width: 50px;\n\n  background-image: linear-gradient(to right, #999 0%, #fff 50%, #999 100%);\n  background-size: 100% 100%;\n  background-repeat: no-repeat;\n\n  -webkit-animation: progressIndeterminate 2s linear infinite;\n  animation: progressIndeterminate 2s linear infinite;\n}\n\n.findbar, .secondaryToolbar {\n  top: 32px;\n  position: absolute;\n  z-index: 10000;\n  height: 32px;\n\n  min-width: 16px;\n  padding: 0px 6px 0px 6px;\n  margin: 4px 2px 4px 2px;\n  color: hsl(0,0%,85%);\n  font-size: 12px;\n  line-height: 14px;\n  text-align: left;\n  cursor: default;\n}\n\nhtml[dir='ltr'] .findbar {\n  left: 68px;\n}\n\nhtml[dir='rtl'] .findbar {\n  right: 68px;\n}\n\n.findbar label {\n  -webkit-user-select: none;\n  -moz-user-select: none;\n}\n\n#findInput[data-status=\"pending\"] {\n  background-image: url(images/loading-small.png);\n  background-repeat: no-repeat;\n  background-position: right;\n}\nhtml[dir='rtl'] #findInput[data-status=\"pending\"] {\n  background-position: left;\n}\n\n.secondaryToolbar {\n  padding: 6px;\n  height: auto;\n  z-index: 30000;\n}\nhtml[dir='ltr'] .secondaryToolbar {\n  right: 4px;\n}\nhtml[dir='rtl'] .secondaryToolbar {\n  left: 4px;\n}\n\n#secondaryToolbarButtonContainer {\n  max-width: 200px;\n  max-height: 400px;\n  overflow-y: auto;\n  -webkit-overflow-scrolling: touch;\n  margin-bottom: -4px;\n}\n\n.doorHanger,\n.doorHangerRight {\n  border: 1px solid hsla(0,0%,0%,.5);\n  border-radius: 2px;\n  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);\n}\n.doorHanger:after, .doorHanger:before,\n.doorHangerRight:after, .doorHangerRight:before {\n  bottom: 100%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n.doorHanger:after,\n.doorHangerRight:after {\n  border-bottom-color: hsla(0,0%,32%,.99);\n  border-width: 8px;\n}\n.doorHanger:before,\n.doorHangerRight:before {\n  border-bottom-color: hsla(0,0%,0%,.5);\n  border-width: 9px;\n}\n\nhtml[dir='ltr'] .doorHanger:after,\nhtml[dir='rtl'] .doorHangerRight:after {\n  left: 13px;\n  margin-left: -8px;\n}\n\nhtml[dir='ltr'] .doorHanger:before,\nhtml[dir='rtl'] .doorHangerRight:before {\n  left: 13px;\n  margin-left: -9px;\n}\n\nhtml[dir='rtl'] .doorHanger:after,\nhtml[dir='ltr'] .doorHangerRight:after {\n  right: 13px;\n  margin-right: -8px;\n}\n\nhtml[dir='rtl'] .doorHanger:before,\nhtml[dir='ltr'] .doorHangerRight:before {\n  right: 13px;\n  margin-right: -9px;\n}\n\n#findMsg {\n  font-style: italic;\n  color: #A6B7D0;\n}\n\n#findInput.notFound {\n  background-color: rgb(255, 102, 102);\n}\n\nhtml[dir='ltr'] #toolbarViewerLeft {\n  margin-left: -1px;\n}\nhtml[dir='rtl'] #toolbarViewerRight {\n  margin-right: -1px;\n}\n\nhtml[dir='ltr'] #toolbarViewerLeft,\nhtml[dir='rtl'] #toolbarViewerRight {\n  position: absolute;\n  top: 0;\n  left: 0;\n}\nhtml[dir='ltr'] #toolbarViewerRight,\nhtml[dir='rtl'] #toolbarViewerLeft {\n  position: absolute;\n  top: 0;\n  right: 0;\n}\nhtml[dir='ltr'] #toolbarViewerLeft > *,\nhtml[dir='ltr'] #toolbarViewerMiddle > *,\nhtml[dir='ltr'] #toolbarViewerRight > *,\nhtml[dir='ltr'] .findbar > * {\n  position: relative;\n  float: left;\n}\nhtml[dir='rtl'] #toolbarViewerLeft > *,\nhtml[dir='rtl'] #toolbarViewerMiddle > *,\nhtml[dir='rtl'] #toolbarViewerRight > *,\nhtml[dir='rtl'] .findbar > * {\n  position: relative;\n  float: right;\n}\n\nhtml[dir='ltr'] .splitToolbarButton {\n  margin: 3px 2px 4px 0;\n  display: inline-block;\n}\nhtml[dir='rtl'] .splitToolbarButton {\n  margin: 3px 0 4px 2px;\n  display: inline-block;\n}\nhtml[dir='ltr'] .splitToolbarButton > .toolbarButton {\n  border-radius: 0;\n  float: left;\n}\nhtml[dir='rtl'] .splitToolbarButton > .toolbarButton {\n  border-radius: 0;\n  float: right;\n}\n\n.toolbarButton,\n.secondaryToolbarButton,\n.overlayButton {\n  border: 0 none;\n  background: none;\n  width: 32px;\n  height: 25px;\n}\n\n.toolbarButton > span {\n  display: inline-block;\n  width: 0;\n  height: 0;\n  overflow: hidden;\n}\n\n.toolbarButton[disabled],\n.secondaryToolbarButton[disabled],\n.overlayButton[disabled] {\n  opacity: .5;\n}\n\n.toolbarButton.group {\n  margin-right: 0;\n}\n\n.splitToolbarButton.toggled .toolbarButton {\n  margin: 0;\n}\n\n.splitToolbarButton:hover > .toolbarButton,\n.splitToolbarButton:focus > .toolbarButton,\n.splitToolbarButton.toggled > .toolbarButton,\n.toolbarButton.textButton {\n  background-color: hsla(0,0%,0%,.12);\n  background-image: linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));\n  background-clip: padding-box;\n  border: 1px solid hsla(0,0%,0%,.35);\n  border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);\n  box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset,\n              0 0 1px hsla(0,0%,100%,.15) inset,\n              0 1px 0 hsla(0,0%,100%,.05);\n  -webkit-transition-property: background-color, border-color, box-shadow;\n  -webkit-transition-duration: 150ms;\n  -webkit-transition-timing-function: ease;\n  transition-property: background-color, border-color, box-shadow;\n  transition-duration: 150ms;\n  transition-timing-function: ease;\n\n}\n.splitToolbarButton > .toolbarButton:hover,\n.splitToolbarButton > .toolbarButton:focus,\n.dropdownToolbarButton:hover,\n.overlayButton:hover,\n.toolbarButton.textButton:hover,\n.toolbarButton.textButton:focus {\n  background-color: hsla(0,0%,0%,.2);\n  box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset,\n              0 0 1px hsla(0,0%,100%,.15) inset,\n              0 0 1px hsla(0,0%,0%,.05);\n  z-index: 199;\n}\n.splitToolbarButton > .toolbarButton {\n  position: relative;\n}\nhtml[dir='ltr'] .splitToolbarButton > .toolbarButton:first-child,\nhtml[dir='rtl'] .splitToolbarButton > .toolbarButton:last-child {\n  position: relative;\n  margin: 0;\n  margin-right: -1px;\n  border-top-left-radius: 2px;\n  border-bottom-left-radius: 2px;\n  border-right-color: transparent;\n}\nhtml[dir='ltr'] .splitToolbarButton > .toolbarButton:last-child,\nhtml[dir='rtl'] .splitToolbarButton > .toolbarButton:first-child {\n  position: relative;\n  margin: 0;\n  margin-left: -1px;\n  border-top-right-radius: 2px;\n  border-bottom-right-radius: 2px;\n  border-left-color: transparent;\n}\n.splitToolbarButtonSeparator {\n  padding: 8px 0;\n  width: 1px;\n  background-color: hsla(0,0%,0%,.5);\n  z-index: 99;\n  box-shadow: 0 0 0 1px hsla(0,0%,100%,.08);\n  display: inline-block;\n  margin: 5px 0;\n}\nhtml[dir='ltr'] .splitToolbarButtonSeparator {\n  float: left;\n}\nhtml[dir='rtl'] .splitToolbarButtonSeparator {\n  float: right;\n}\n.splitToolbarButton:hover > .splitToolbarButtonSeparator,\n.splitToolbarButton.toggled > .splitToolbarButtonSeparator {\n  padding: 12px 0;\n  margin: 1px 0;\n  box-shadow: 0 0 0 1px hsla(0,0%,100%,.03);\n  -webkit-transition-property: padding;\n  -webkit-transition-duration: 10ms;\n  -webkit-transition-timing-function: ease;\n  transition-property: padding;\n  transition-duration: 10ms;\n  transition-timing-function: ease;\n}\n\n.toolbarButton,\n.dropdownToolbarButton,\n.secondaryToolbarButton,\n.overlayButton {\n  min-width: 16px;\n  padding: 2px 6px 0;\n  border: 1px solid transparent;\n  border-radius: 2px;\n  color: hsla(0,0%,100%,.8);\n  font-size: 12px;\n  line-height: 14px;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  /* Opera does not support user-select, use <... unselectable=\"on\"> instead */\n  cursor: default;\n  -webkit-transition-property: background-color, border-color, box-shadow;\n  -webkit-transition-duration: 150ms;\n  -webkit-transition-timing-function: ease;\n  transition-property: background-color, border-color, box-shadow;\n  transition-duration: 150ms;\n  transition-timing-function: ease;\n}\n\nhtml[dir='ltr'] .toolbarButton,\nhtml[dir='ltr'] .overlayButton,\nhtml[dir='ltr'] .dropdownToolbarButton {\n  margin: 3px 2px 4px 0;\n}\nhtml[dir='rtl'] .toolbarButton,\nhtml[dir='rtl'] .overlayButton,\nhtml[dir='rtl'] .dropdownToolbarButton {\n  margin: 3px 0 4px 2px;\n}\n\n.toolbarButton:hover,\n.toolbarButton:focus,\n.dropdownToolbarButton,\n.overlayButton,\n.secondaryToolbarButton:hover,\n.secondaryToolbarButton:focus {\n  background-color: hsla(0,0%,0%,.12);\n  background-image: linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));\n  background-clip: padding-box;\n  border: 1px solid hsla(0,0%,0%,.35);\n  border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);\n  box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset,\n              0 0 1px hsla(0,0%,100%,.15) inset,\n              0 1px 0 hsla(0,0%,100%,.05);\n}\n\n.toolbarButton:hover:active,\n.overlayButton:hover:active,\n.dropdownToolbarButton:hover:active,\n.secondaryToolbarButton:hover:active {\n  background-color: hsla(0,0%,0%,.2);\n  background-image: linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));\n  border-color: hsla(0,0%,0%,.35) hsla(0,0%,0%,.4) hsla(0,0%,0%,.45);\n  box-shadow: 0 1px 1px hsla(0,0%,0%,.1) inset,\n              0 0 1px hsla(0,0%,0%,.2) inset,\n              0 1px 0 hsla(0,0%,100%,.05);\n  -webkit-transition-property: background-color, border-color, box-shadow;\n  -webkit-transition-duration: 10ms;\n  -webkit-transition-timing-function: linear;\n  transition-property: background-color, border-color, box-shadow;\n  transition-duration: 10ms;\n  transition-timing-function: linear;\n}\n\n.toolbarButton.toggled,\n.splitToolbarButton.toggled > .toolbarButton.toggled,\n.secondaryToolbarButton.toggled {\n  background-color: hsla(0,0%,0%,.3);\n  background-image: linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));\n  border-color: hsla(0,0%,0%,.4) hsla(0,0%,0%,.45) hsla(0,0%,0%,.5);\n  box-shadow: 0 1px 1px hsla(0,0%,0%,.1) inset,\n              0 0 1px hsla(0,0%,0%,.2) inset,\n              0 1px 0 hsla(0,0%,100%,.05);\n  -webkit-transition-property: background-color, border-color, box-shadow;\n  -webkit-transition-duration: 10ms;\n  -webkit-transition-timing-function: linear;\n  transition-property: background-color, border-color, box-shadow;\n  transition-duration: 10ms;\n  transition-timing-function: linear;\n}\n\n.toolbarButton.toggled:hover:active,\n.splitToolbarButton.toggled > .toolbarButton.toggled:hover:active,\n.secondaryToolbarButton.toggled:hover:active {\n  background-color: hsla(0,0%,0%,.4);\n  border-color: hsla(0,0%,0%,.4) hsla(0,0%,0%,.5) hsla(0,0%,0%,.55);\n  box-shadow: 0 1px 1px hsla(0,0%,0%,.2) inset,\n              0 0 1px hsla(0,0%,0%,.3) inset,\n              0 1px 0 hsla(0,0%,100%,.05);\n}\n\n.dropdownToolbarButton {\n  width: 120px;\n  max-width: 120px;\n  padding: 3px 2px 2px;\n  overflow: hidden;\n  background: url(images/toolbarButton-menuArrows.png) no-repeat;\n}\nhtml[dir='ltr'] .dropdownToolbarButton {\n  background-position: 95%;\n}\nhtml[dir='rtl'] .dropdownToolbarButton {\n  background-position: 5%;\n}\n\n.dropdownToolbarButton > select {\n  min-width: 140px;\n  font-size: 12px;\n  color: hsl(0,0%,95%);\n  margin: 0;\n  padding: 0;\n  border: none;\n  background: rgba(0,0,0,0); /* Opera does not support 'transparent' <select> background */\n}\n\n.dropdownToolbarButton > select > option {\n  background: hsl(0,0%,24%);\n}\n\n#customScaleOption {\n  display: none;\n}\n\n#pageWidthOption {\n  border-bottom: 1px rgba(255, 255, 255, .5) solid;\n}\n\nhtml[dir='ltr'] .splitToolbarButton:first-child,\nhtml[dir='ltr'] .toolbarButton:first-child,\nhtml[dir='rtl'] .splitToolbarButton:last-child,\nhtml[dir='rtl'] .toolbarButton:last-child {\n  margin-left: 4px;\n}\nhtml[dir='ltr'] .splitToolbarButton:last-child,\nhtml[dir='ltr'] .toolbarButton:last-child,\nhtml[dir='rtl'] .splitToolbarButton:first-child,\nhtml[dir='rtl'] .toolbarButton:first-child {\n  margin-right: 4px;\n}\n\n.toolbarButtonSpacer {\n  width: 30px;\n  display: inline-block;\n  height: 1px;\n}\n\n.toolbarButtonFlexibleSpacer {\n  -webkit-box-flex: 1;\n  -moz-box-flex: 1;\n  min-width: 30px;\n}\n\nhtml[dir='ltr'] #findPrevious {\n  margin-left: 3px;\n}\nhtml[dir='ltr'] #findNext {\n  margin-right: 3px;\n}\n\nhtml[dir='rtl'] #findPrevious {\n  margin-right: 3px;\n}\nhtml[dir='rtl'] #findNext {\n  margin-left: 3px;\n}\n\n.toolbarButton::before,\n.secondaryToolbarButton::before {\n  /* All matching images have a size of 16x16\n   * All relevant containers have a size of 32x25 */\n  position: absolute;\n  display: inline-block;\n  top: 4px;\n  left: 7px;\n}\n\nhtml[dir=\"ltr\"] .secondaryToolbarButton::before {\n  left: 4px;\n}\nhtml[dir=\"rtl\"] .secondaryToolbarButton::before {\n  right: 4px;\n}\n\nhtml[dir='ltr'] .toolbarButton#sidebarToggle::before {\n  content: url(images/toolbarButton-sidebarToggle.png);\n}\nhtml[dir='rtl'] .toolbarButton#sidebarToggle::before {\n  content: url(images/toolbarButton-sidebarToggle-rtl.png);\n}\n\nhtml[dir='ltr'] .toolbarButton#secondaryToolbarToggle::before {\n  content: url(images/toolbarButton-secondaryToolbarToggle.png);\n}\nhtml[dir='rtl'] .toolbarButton#secondaryToolbarToggle::before {\n  content: url(images/toolbarButton-secondaryToolbarToggle-rtl.png);\n}\n\nhtml[dir='ltr'] .toolbarButton.findPrevious::before {\n  content: url(images/findbarButton-previous.png);\n}\nhtml[dir='rtl'] .toolbarButton.findPrevious::before {\n  content: url(images/findbarButton-previous-rtl.png);\n}\n\nhtml[dir='ltr'] .toolbarButton.findNext::before {\n  content: url(images/findbarButton-next.png);\n}\nhtml[dir='rtl'] .toolbarButton.findNext::before {\n  content: url(images/findbarButton-next-rtl.png);\n}\n\nhtml[dir='ltr'] .toolbarButton.pageUp::before {\n  content: url(images/toolbarButton-pageUp.png);\n}\nhtml[dir='rtl'] .toolbarButton.pageUp::before {\n  content: url(images/toolbarButton-pageUp-rtl.png);\n}\n\nhtml[dir='ltr'] .toolbarButton.pageDown::before {\n  content: url(images/toolbarButton-pageDown.png);\n}\nhtml[dir='rtl'] .toolbarButton.pageDown::before {\n  content: url(images/toolbarButton-pageDown-rtl.png);\n}\n\n.toolbarButton.zoomOut::before {\n  content: url(images/toolbarButton-zoomOut.png);\n}\n\n.toolbarButton.zoomIn::before {\n  content: url(images/toolbarButton-zoomIn.png);\n}\n\n.toolbarButton.presentationMode::before,\n.secondaryToolbarButton.presentationMode::before {\n  content: url(images/toolbarButton-presentationMode.png);\n}\n\n.toolbarButton.print::before,\n.secondaryToolbarButton.print::before {\n  content: url(images/toolbarButton-print.png);\n}\n\n.toolbarButton.openFile::before,\n.secondaryToolbarButton.openFile::before {\n  content: url(images/toolbarButton-openFile.png);\n}\n\n.toolbarButton.download::before,\n.secondaryToolbarButton.download::before {\n  content: url(images/toolbarButton-download.png);\n}\n\n.toolbarButton.bookmark,\n.secondaryToolbarButton.bookmark {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  outline: none;\n  padding-top: 4px;\n  text-decoration: none;\n}\n.secondaryToolbarButton.bookmark {\n  padding-top: 5px;\n}\n\n.bookmark[href='#'] {\n  opacity: .5;\n  pointer-events: none;\n}\n\n.toolbarButton.bookmark::before,\n.secondaryToolbarButton.bookmark::before {\n  content: url(images/toolbarButton-bookmark.png);\n}\n\n#viewThumbnail.toolbarButton::before {\n  content: url(images/toolbarButton-viewThumbnail.png);\n}\n\nhtml[dir=\"ltr\"] #viewOutline.toolbarButton::before {\n  content: url(images/toolbarButton-viewOutline.png);\n}\nhtml[dir=\"rtl\"] #viewOutline.toolbarButton::before {\n  content: url(images/toolbarButton-viewOutline-rtl.png);\n}\n\n#viewAttachments.toolbarButton::before {\n  content: url(images/toolbarButton-viewAttachments.png);\n}\n\n#viewFind.toolbarButton::before {\n  content: url(images/toolbarButton-search.png);\n}\n\n.secondaryToolbarButton {\n  position: relative;\n  margin: 0 0 4px 0;\n  padding: 3px 0 1px 0;\n  height: auto;\n  min-height: 25px;\n  width: auto;\n  min-width: 100%;\n  white-space: normal;\n}\nhtml[dir=\"ltr\"] .secondaryToolbarButton {\n  padding-left: 24px;\n  text-align: left;\n}\nhtml[dir=\"rtl\"] .secondaryToolbarButton {\n  padding-right: 24px;\n  text-align: right;\n}\nhtml[dir=\"ltr\"] .secondaryToolbarButton.bookmark {\n  padding-left: 27px;\n}\nhtml[dir=\"rtl\"] .secondaryToolbarButton.bookmark {\n  padding-right: 27px;\n}\n\nhtml[dir=\"ltr\"] .secondaryToolbarButton > span {\n  padding-right: 4px;\n}\nhtml[dir=\"rtl\"] .secondaryToolbarButton > span {\n  padding-left: 4px;\n}\n\n.secondaryToolbarButton.firstPage::before {\n  content: url(images/secondaryToolbarButton-firstPage.png);\n}\n\n.secondaryToolbarButton.lastPage::before {\n  content: url(images/secondaryToolbarButton-lastPage.png);\n}\n\n.secondaryToolbarButton.rotateCcw::before {\n  content: url(images/secondaryToolbarButton-rotateCcw.png);\n}\n\n.secondaryToolbarButton.rotateCw::before {\n  content: url(images/secondaryToolbarButton-rotateCw.png);\n}\n\n.secondaryToolbarButton.handTool::before {\n  content: url(images/secondaryToolbarButton-handTool.png);\n}\n\n.secondaryToolbarButton.documentProperties::before {\n  content: url(images/secondaryToolbarButton-documentProperties.png);\n}\n\n.verticalToolbarSeparator {\n  display: block;\n  padding: 8px 0;\n  margin: 8px 4px;\n  width: 1px;\n  background-color: hsla(0,0%,0%,.5);\n  box-shadow: 0 0 0 1px hsla(0,0%,100%,.08);\n}\nhtml[dir='ltr'] .verticalToolbarSeparator {\n  margin-left: 2px;\n}\nhtml[dir='rtl'] .verticalToolbarSeparator {\n  margin-right: 2px;\n}\n\n.horizontalToolbarSeparator {\n  display: block;\n  margin: 0 0 4px 0;\n  height: 1px;\n  width: 100%;\n  background-color: hsla(0,0%,0%,.5);\n  box-shadow: 0 0 0 1px hsla(0,0%,100%,.08);\n}\n\n.toolbarField {\n  padding: 3px 6px;\n  margin: 4px 0 4px 0;\n  border: 1px solid transparent;\n  border-radius: 2px;\n  background-color: hsla(0,0%,100%,.09);\n  background-image: linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));\n  background-clip: padding-box;\n  border: 1px solid hsla(0,0%,0%,.35);\n  border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);\n  box-shadow: 0 1px 0 hsla(0,0%,0%,.05) inset,\n              0 1px 0 hsla(0,0%,100%,.05);\n  color: hsl(0,0%,95%);\n  font-size: 12px;\n  line-height: 14px;\n  outline-style: none;\n  transition-property: background-color, border-color, box-shadow;\n  transition-duration: 150ms;\n  transition-timing-function: ease;\n}\n\n.toolbarField[type=checkbox] {\n  display: inline-block;\n  margin: 8px 0px;\n}\n\n.toolbarField.pageNumber {\n  -moz-appearance: textfield; /* hides the spinner in moz */\n  min-width: 16px;\n  text-align: right;\n  width: 40px;\n}\n\n.toolbarField.pageNumber.visiblePageIsLoading {\n  background-image: url(images/loading-small.png);\n  background-repeat: no-repeat;\n  background-position: 1px;\n}\n\n.toolbarField.pageNumber::-webkit-inner-spin-button,\n.toolbarField.pageNumber::-webkit-outer-spin-button {\n    -webkit-appearance: none;\n    margin: 0;\n}\n\n.toolbarField:hover {\n  background-color: hsla(0,0%,100%,.11);\n  border-color: hsla(0,0%,0%,.4) hsla(0,0%,0%,.43) hsla(0,0%,0%,.45);\n}\n\n.toolbarField:focus {\n  background-color: hsla(0,0%,100%,.15);\n  border-color: hsla(204,100%,65%,.8) hsla(204,100%,65%,.85) hsla(204,100%,65%,.9);\n}\n\n.toolbarLabel {\n  min-width: 16px;\n  padding: 3px 6px 3px 2px;\n  margin: 4px 2px 4px 0;\n  border: 1px solid transparent;\n  border-radius: 2px;\n  color: hsl(0,0%,85%);\n  font-size: 12px;\n  line-height: 14px;\n  text-align: left;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  cursor: default;\n}\n\n#thumbnailView {\n  position: absolute;\n  width: 120px;\n  top: 0;\n  bottom: 0;\n  padding: 10px 40px 0;\n  overflow: auto;\n  -webkit-overflow-scrolling: touch;\n}\n\n.thumbnail {\n  float: left;\n  margin-bottom: 5px;\n}\n\n#thumbnailView > a:last-of-type > .thumbnail {\n  margin-bottom: 10px;\n}\n\n.thumbnail:not([data-loaded]) {\n  border: 1px dashed rgba(255, 255, 255, 0.5);\n  margin-bottom: 10px;\n}\n\n.thumbnailImage {\n  transition-duration: 150ms;\n  border: 1px solid transparent;\n  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);\n  opacity: 0.8;\n  z-index: 99;\n}\n\n.thumbnailSelectionRing {\n  border-radius: 2px;\n  padding: 7px;\n  transition-duration: 150ms;\n}\n\na:focus > .thumbnail > .thumbnailSelectionRing > .thumbnailImage,\n.thumbnail:hover > .thumbnailSelectionRing > .thumbnailImage {\n  opacity: .9;\n}\n\na:focus > .thumbnail > .thumbnailSelectionRing,\n.thumbnail:hover > .thumbnailSelectionRing {\n  background-color: hsla(0,0%,100%,.15);\n  background-image: linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));\n  background-clip: padding-box;\n  box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset,\n              0 0 1px hsla(0,0%,100%,.2) inset,\n              0 0 1px hsla(0,0%,0%,.2);\n  color: hsla(0,0%,100%,.9);\n}\n\n.thumbnail.selected > .thumbnailSelectionRing > .thumbnailImage {\n  box-shadow: 0 0 0 1px hsla(0,0%,0%,.5);\n  opacity: 1;\n}\n\n.thumbnail.selected > .thumbnailSelectionRing {\n  background-color: hsla(0,0%,100%,.3);\n  background-image: linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));\n  background-clip: padding-box;\n  box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset,\n              0 0 1px hsla(0,0%,100%,.1) inset,\n              0 0 1px hsla(0,0%,0%,.2);\n  color: hsla(0,0%,100%,1);\n}\n\n#outlineView,\n#attachmentsView {\n  position: absolute;\n  width: 192px;\n  top: 0;\n  bottom: 0;\n  overflow: auto;\n  -webkit-overflow-scrolling: touch;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n}\n\n#outlineView {\n  padding: 4px 4px 0;\n}\n#attachmentsView {\n  padding: 3px 4px 0;\n}\n\nhtml[dir='ltr'] .outlineItem > .outlineItems {\n  margin-left: 20px;\n}\n\nhtml[dir='rtl'] .outlineItem > .outlineItems {\n  margin-right: 20px;\n}\n\n.outlineItem > a,\n.attachmentsItem > button {\n  text-decoration: none;\n  display: inline-block;\n  min-width: 95%;\n  height: auto;\n  margin-bottom: 1px;\n  border-radius: 2px;\n  color: hsla(0,0%,100%,.8);\n  font-size: 13px;\n  line-height: 15px;\n  -moz-user-select: none;\n  white-space: normal;\n}\n\n.attachmentsItem > button {\n  border: 0 none;\n  background: none;\n  cursor: pointer;\n  width: 100%;\n}\n\nhtml[dir='ltr'] .outlineItem > a {\n  padding: 2px 0 5px 10px;\n}\nhtml[dir='ltr'] .attachmentsItem > button {\n  padding: 2px 0 3px 7px;\n  text-align: left;\n}\n\nhtml[dir='rtl'] .outlineItem > a {\n  padding: 2px 10px 5px 0;\n}\nhtml[dir='rtl'] .attachmentsItem > button {\n  padding: 2px 7px 3px 0;\n  text-align: right;\n}\n\n.outlineItem > a:hover,\n.attachmentsItem > button:hover {\n  background-color: hsla(0,0%,100%,.02);\n  background-image: linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));\n  background-clip: padding-box;\n  box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset,\n              0 0 1px hsla(0,0%,100%,.2) inset,\n              0 0 1px hsla(0,0%,0%,.2);\n  color: hsla(0,0%,100%,.9);\n}\n\n.outlineItem.selected {\n  background-color: hsla(0,0%,100%,.08);\n  background-image: linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,100%,0));\n  background-clip: padding-box;\n  box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset,\n              0 0 1px hsla(0,0%,100%,.1) inset,\n              0 0 1px hsla(0,0%,0%,.2);\n  color: hsla(0,0%,100%,1);\n}\n\n.noResults {\n  font-size: 12px;\n  color: hsla(0,0%,100%,.8);\n  font-style: italic;\n  cursor: default;\n}\n\n\n/* TODO: file FF bug to support ::-moz-selection:window-inactive\n   so we can override the opaque grey background when the window is inactive;\n   see https://bugzilla.mozilla.org/show_bug.cgi?id=706209 */\n::selection { background: rgba(0,0,255,0.3); }\n::-moz-selection { background: rgba(0,0,255,0.3); }\n\n.textLayer ::selection { background: rgb(0,0,255); }\n.textLayer ::-moz-selection { background: rgb(0,0,255); }\n.textLayer {\n  opacity: 0.2;\n}\n\n#errorWrapper {\n  background: none repeat scroll 0 0 #FF5555;\n  color: white;\n  left: 0;\n  position: absolute;\n  right: 0;\n  z-index: 1000;\n  padding: 3px;\n  font-size: 0.8em;\n}\n.loadingInProgress #errorWrapper {\n  top: 37px;\n}\n\n#errorMessageLeft {\n  float: left;\n}\n\n#errorMessageRight {\n  float: right;\n}\n\n#errorMoreInfo {\n  background-color: #FFFFFF;\n  color: black;\n  padding: 3px;\n  margin: 3px;\n  width: 98%;\n}\n\n.overlayButton {\n  width: auto;\n  margin: 3px 4px 2px 4px !important;\n  padding: 2px 6px 3px 6px;\n}\n\n#overlayContainer {\n  display: table;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  background-color: hsla(0,0%,0%,.2);\n  z-index: 40000;\n}\n#overlayContainer > * {\n  overflow: auto;\n  -webkit-overflow-scrolling: touch;\n}\n\n#overlayContainer > .container {\n  display: table-cell;\n  vertical-align: middle;\n  text-align: center;\n}\n\n#overlayContainer > .container > .dialog {\n  display: inline-block;\n  padding: 15px;\n  border-spacing: 4px;\n  color: hsl(0,0%,85%);\n  font-size: 12px;\n  line-height: 14px;\n  background-color: #474747; /* fallback */\n  background-image: url(images/texture.png),\n                    linear-gradient(hsla(0,0%,32%,.99), hsla(0,0%,27%,.95));\n  box-shadow: inset 1px 0 0 hsla(0,0%,100%,.08),\n              inset 0 1px 1px hsla(0,0%,0%,.15),\n              inset 0 -1px 0 hsla(0,0%,100%,.05),\n              0 1px 0 hsla(0,0%,0%,.15),\n              0 1px 1px hsla(0,0%,0%,.1);\n  border: 1px solid hsla(0,0%,0%,.5);\n  border-radius: 4px;\n  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);\n}\n\n.dialog > .row {\n  display: table-row;\n}\n\n.dialog > .row > * {\n  display: table-cell;\n}\n\n.dialog .toolbarField {\n  margin: 5px 0;\n}\n.dialog .toolbarField:hover,\n.dialog .toolbarField:focus {\n  border-color: hsla(0,0%,0%,.32) hsla(0,0%,0%,.38) hsla(0,0%,0%,.42);\n}\n\n.dialog .separator {\n  display: block;\n  margin: 4px 0 4px 0;\n  height: 1px;\n  width: 100%;\n  background-color: hsla(0,0%,0%,.5);\n  box-shadow: 0 0 0 1px hsla(0,0%,100%,.08);\n}\n\n.dialog .buttonRow {\n  text-align: center;\n  vertical-align: middle;\n}\n\n#passwordOverlay > .dialog {\n  text-align: center;\n}\n#passwordOverlay .toolbarField {\n  width: 200px;\n}\n\n#documentPropertiesOverlay > .dialog {\n  text-align: left;\n}\n#documentPropertiesOverlay .row > * {\n  min-width: 100px;\n}\nhtml[dir='ltr'] #documentPropertiesOverlay .row > * {\n  text-align: left;\n}\nhtml[dir='rtl'] #documentPropertiesOverlay .row > * {\n  text-align: right;\n}\n#documentPropertiesOverlay .row > span {\n  width: 125px;\n  word-wrap: break-word;\n}\n#documentPropertiesOverlay .row > p {\n  max-width: 225px;\n  word-wrap: break-word;\n}\n#documentPropertiesOverlay .buttonRow {\n  margin-top: 10px;\n}\n\n.clearBoth {\n  clear: both;\n}\n\n.fileInput {\n  background: white;\n  color: black;\n  margin-top: 5px;\n  visibility: hidden;\n  position: fixed;\n  right: 0;\n  top: 0;\n}\n\n#PDFBug {\n  background: none repeat scroll 0 0 white;\n  border: 1px solid #666666;\n  position: fixed;\n  top: 32px;\n  right: 0;\n  bottom: 0;\n  font-size: 10px;\n  padding: 0;\n  width: 300px;\n}\n#PDFBug .controls {\n    background:#EEEEEE;\n    border-bottom: 1px solid #666666;\n    padding: 3px;\n}\n#PDFBug .panels {\n  bottom: 0;\n  left: 0;\n  overflow: auto;\n  -webkit-overflow-scrolling: touch;\n  position: absolute;\n  right: 0;\n  top: 27px;\n}\n#PDFBug button.active {\n  font-weight: bold;\n}\n.debuggerShowText {\n  background: none repeat scroll 0 0 yellow;\n  color: blue;\n}\n.debuggerHideText:hover {\n  background: none repeat scroll 0 0 yellow;\n}\n#PDFBug .stats {\n  font-family: courier;\n  font-size: 10px;\n  white-space: pre;\n}\n#PDFBug .stats .title {\n    font-weight: bold;\n}\n#PDFBug table {\n  font-size: 10px;\n}\n\n#viewer.textLayer-visible .textLayer > div,\n#viewer.textLayer-hover .textLayer > div:hover {\n  background-color: white;\n  color: black;\n}\n\n#viewer.textLayer-shadow .textLayer > div {\n  background-color: rgba(255,255,255, .6);\n  color: black;\n}\n\n.grab-to-pan-grab {\n  cursor: url(\"images/grab.cur\"), move !important;\n  cursor: -webkit-grab !important;\n  cursor: -moz-grab !important;\n  cursor: grab !important;\n}\n.grab-to-pan-grab *:not(input):not(textarea):not(button):not(select):not(:link) {\n  cursor: inherit !important;\n}\n.grab-to-pan-grab:active,\n.grab-to-pan-grabbing {\n  cursor: url(\"images/grabbing.cur\"), move !important;\n  cursor: -webkit-grabbing !important;\n  cursor: -moz-grabbing !important;\n  cursor: grabbing !important;\n\n  position: fixed;\n  background: transparent;\n  display: block;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  overflow: hidden;\n  z-index: 50000; /* should be higher than anything else in PDF.js! */\n}\n\n@page {\n  margin: 0;\n}\n\n#printContainer {\n  display: none;\n}\n\n@media screen and (min-resolution: 2dppx) {\n  /* Rules for Retina screens */\n  .toolbarButton::before {\n    -webkit-transform: scale(0.5);\n    transform: scale(0.5);\n    top: -5px;\n  }\n\n  .secondaryToolbarButton::before {\n    -webkit-transform: scale(0.5);\n    transform: scale(0.5);\n    top: -4px;\n  }\n\n  html[dir='ltr'] .toolbarButton::before,\n  html[dir='rtl'] .toolbarButton::before {\n    left: -1px;\n  }\n\n  html[dir='ltr'] .secondaryToolbarButton::before {\n    left: -2px;\n  }\n  html[dir='rtl'] .secondaryToolbarButton::before {\n    left: 186px;\n  }\n\n  .toolbarField.pageNumber.visiblePageIsLoading,\n  #findInput[data-status=\"pending\"] {\n    background-image: url(images/loading-small@2x.png);\n    background-size: 16px 17px;\n  }\n\n  .dropdownToolbarButton {\n    background: url(images/toolbarButton-menuArrows@2x.png) no-repeat;\n    background-size: 7px 16px;\n  }\n\n  html[dir='ltr'] .toolbarButton#sidebarToggle::before {\n    content: url(images/toolbarButton-sidebarToggle@2x.png);\n  }\n  html[dir='rtl'] .toolbarButton#sidebarToggle::before {\n    content: url(images/toolbarButton-sidebarToggle-rtl@2x.png);\n  }\n\n  html[dir='ltr'] .toolbarButton#secondaryToolbarToggle::before {\n    content: url(images/toolbarButton-secondaryToolbarToggle@2x.png);\n  }\n  html[dir='rtl'] .toolbarButton#secondaryToolbarToggle::before {\n    content: url(images/toolbarButton-secondaryToolbarToggle-rtl@2x.png);\n  }\n\n  html[dir='ltr'] .toolbarButton.findPrevious::before {\n    content: url(images/findbarButton-previous@2x.png);\n  }\n  html[dir='rtl'] .toolbarButton.findPrevious::before {\n    content: url(images/findbarButton-previous-rtl@2x.png);\n  }\n\n  html[dir='ltr'] .toolbarButton.findNext::before {\n    content: url(images/findbarButton-next@2x.png);\n  }\n  html[dir='rtl'] .toolbarButton.findNext::before {\n    content: url(images/findbarButton-next-rtl@2x.png);\n  }\n\n  html[dir='ltr'] .toolbarButton.pageUp::before {\n    content: url(images/toolbarButton-pageUp@2x.png);\n  }\n  html[dir='rtl'] .toolbarButton.pageUp::before {\n    content: url(images/toolbarButton-pageUp-rtl@2x.png);\n  }\n\n  html[dir='ltr'] .toolbarButton.pageDown::before {\n    content: url(images/toolbarButton-pageDown@2x.png);\n  }\n  html[dir='rtl'] .toolbarButton.pageDown::before {\n    content: url(images/toolbarButton-pageDown-rtl@2x.png);\n  }\n\n  .toolbarButton.zoomIn::before {\n    content: url(images/toolbarButton-zoomIn@2x.png);\n  }\n\n  .toolbarButton.zoomOut::before {\n    content: url(images/toolbarButton-zoomOut@2x.png);\n  }\n\n  .toolbarButton.presentationMode::before,\n  .secondaryToolbarButton.presentationMode::before {\n    content: url(images/toolbarButton-presentationMode@2x.png);\n  }\n\n  .toolbarButton.print::before,\n  .secondaryToolbarButton.print::before {\n    content: url(images/toolbarButton-print@2x.png);\n  }\n\n  .toolbarButton.openFile::before,\n  .secondaryToolbarButton.openFile::before {\n    content: url(images/toolbarButton-openFile@2x.png);\n  }\n\n  .toolbarButton.download::before,\n  .secondaryToolbarButton.download::before {\n    content: url(images/toolbarButton-download@2x.png);\n  }\n\n  .toolbarButton.bookmark::before,\n  .secondaryToolbarButton.bookmark::before {\n    content: url(images/toolbarButton-bookmark@2x.png);\n  }\n\n  #viewThumbnail.toolbarButton::before {\n    content: url(images/toolbarButton-viewThumbnail@2x.png);\n  }\n\n  html[dir=\"ltr\"] #viewOutline.toolbarButton::before {\n    content: url(images/toolbarButton-viewOutline@2x.png);\n  }\n  html[dir=\"rtl\"] #viewOutline.toolbarButton::before {\n    content: url(images/toolbarButton-viewOutline-rtl@2x.png);\n  }\n\n  #viewAttachments.toolbarButton::before {\n    content: url(images/toolbarButton-viewAttachments@2x.png);\n  }\n\n  #viewFind.toolbarButton::before {\n    content: url(images/toolbarButton-search@2x.png);\n  }\n\n  .secondaryToolbarButton.firstPage::before {\n    content: url(images/secondaryToolbarButton-firstPage@2x.png);\n  }\n\n  .secondaryToolbarButton.lastPage::before {\n    content: url(images/secondaryToolbarButton-lastPage@2x.png);\n  }\n\n  .secondaryToolbarButton.rotateCcw::before {\n    content: url(images/secondaryToolbarButton-rotateCcw@2x.png);\n  }\n\n  .secondaryToolbarButton.rotateCw::before {\n    content: url(images/secondaryToolbarButton-rotateCw@2x.png);\n  }\n\n  .secondaryToolbarButton.handTool::before {\n    content: url(images/secondaryToolbarButton-handTool@2x.png);\n  }\n\n  .secondaryToolbarButton.documentProperties::before {\n    content: url(images/secondaryToolbarButton-documentProperties@2x.png);\n  }\n}\n\n@media print {\n  /* General rules for printing. */\n  body {\n    background: transparent none;\n  }\n\n  /* Rules for browsers that don't support mozPrintCallback. */\n  #sidebarContainer, #secondaryToolbar, .toolbar, #loadingBox, #errorWrapper, .textLayer {\n    display: none;\n  }\n  #viewerContainer {\n    overflow: visible;\n  }\n\n  #mainContainer, #viewerContainer, .page, .page canvas {\n    position: static;\n    padding: 0;\n    margin: 0;\n  }\n\n  .page {\n    float: left;\n    display: none;\n    border: none;\n    box-shadow: none;\n    background-clip: content-box;\n    background-color: white;\n  }\n\n  .page[data-loaded] {\n    display: block;\n  }\n\n  .fileInput {\n    display: none;\n  }\n\n  /* Rules for browsers that support mozPrintCallback */\n  body[data-mozPrintCallback] #outerContainer {\n    display: none;\n  }\n  body[data-mozPrintCallback] #printContainer {\n    display: block;\n  }\n  #printContainer canvas {\n    position: relative;\n    top: 0;\n    left: 0;\n    display: block;\n  }\n  #printContainer div {\n    page-break-after: always;\n    page-break-inside: avoid;\n  }\n}\n\n.visibleLargeView,\n.visibleMediumView,\n.visibleSmallView {\n  display: none;\n}\n\n@media all and (max-width: 960px) {\n  html[dir='ltr'] #outerContainer.sidebarMoving .outerCenter,\n  html[dir='ltr'] #outerContainer.sidebarOpen .outerCenter {\n    float: left;\n    left: 205px;\n  }\n  html[dir='rtl'] #outerContainer.sidebarMoving .outerCenter,\n  html[dir='rtl'] #outerContainer.sidebarOpen .outerCenter {\n    float: right;\n    right: 205px;\n  }\n}\n\n@media all and (max-width: 900px) {\n  .sidebarOpen .hiddenLargeView {\n    display: none;\n  }\n  .sidebarOpen .visibleLargeView {\n    display: inherit;\n  }\n}\n\n@media all and (max-width: 860px) {\n  .sidebarOpen .hiddenMediumView {\n    display: none;\n  }\n  .sidebarOpen .visibleMediumView {\n    display: inherit;\n  }\n}\n\n@media all and (max-width: 770px) {\n  #sidebarContainer {\n    top: 32px;\n    z-index: 100;\n  }\n  .loadingInProgress #sidebarContainer {\n    top: 37px;\n  }\n  #sidebarContent {\n    top: 32px;\n    background-color: hsla(0,0%,0%,.7);\n  }\n\n  html[dir='ltr'] #outerContainer.sidebarOpen > #mainContainer {\n    left: 0px;\n  }\n  html[dir='rtl'] #outerContainer.sidebarOpen > #mainContainer {\n    right: 0px;\n  }\n\n  html[dir='ltr'] .outerCenter {\n    float: left;\n    left: 205px;\n  }\n  html[dir='rtl'] .outerCenter {\n    float: right;\n    right: 205px;\n  }\n\n  #outerContainer .hiddenLargeView,\n  #outerContainer .hiddenMediumView {\n    display: inherit;\n  }\n  #outerContainer .visibleLargeView,\n  #outerContainer .visibleMediumView {\n    display: none;\n  }\n}\n\n@media all and (max-width: 700px) {\n  #outerContainer .hiddenLargeView {\n    display: none;\n  }\n  #outerContainer .visibleLargeView {\n    display: inherit;\n  }\n}\n\n@media all and (max-width: 660px) {\n  #outerContainer .hiddenMediumView {\n    display: none;\n  }\n  #outerContainer .visibleMediumView {\n    display: inherit;\n  }\n}\n\n@media all and (max-width: 600px) {\n  .hiddenSmallView {\n    display: none;\n  }\n  .visibleSmallView {\n    display: inherit;\n  }\n  html[dir='ltr'] #outerContainer.sidebarMoving .outerCenter,\n  html[dir='ltr'] #outerContainer.sidebarOpen .outerCenter,\n  html[dir='ltr'] .outerCenter {\n    left: 156px;\n  }\n  html[dir='rtl'] #outerContainer.sidebarMoving .outerCenter,\n  html[dir='rtl'] #outerContainer.sidebarOpen .outerCenter,\n  html[dir='rtl'] .outerCenter {\n    right: 156px;\n  }\n  .toolbarButtonSpacer {\n    width: 0;\n  }\n}\n\n@media all and (max-width: 510px) {\n  #scaleSelectContainer, #pageNumberLabel {\n    display: none;\n  }\n}\n",
+			"file": "handbook/viewer.css",
+			"file_size": 45549,
+			"file_write_time": 1420553852000000,
+			"settings":
+			{
+				"buffer_size": 45549,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "handbook/viewer.js",
+			"settings":
+			{
+				"buffer_size": 228375,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 296.0,
+		"selected_items":
+		[
+			[
+				"",
+				"About"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Applications/MAMP/htdocs/wizbif/p_/handbook/l10n.js",
+		"/Applications/MAMP/htdocs/wizbif/p_/edit_profile_show.php",
+		"/Applications/MAMP/htdocs/wizbif/style.css",
+		"/Applications/MAMP/htdocs/wizbif/p_/p_index.php",
+		"/Applications/MAMP/htdocs/wizbif/password/password_reset_form.php",
+		"/Users/maxfranks/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/maxfranks/Library/Application Support/Sublime Text 2/Packages/Package Control/Package Control.sublime-settings",
+		"/Users/maxfranks/Documents/workspace/wsbf/wizbif/p_/submit_login.php",
+		"/Users/maxfranks/Documents/workspace/wsbf/wizbif/p_/hash_functions.php",
+		"/Users/maxfranks/Documents/workspace/wsbf/wizbif/p_/p_login.php",
+		"/Users/maxfranks/Documents/workspace/wsbf/wizbif/p_/conn.php",
+		"/Users/maxfranks/Documents/workspace/wsbf/wizbif/p_position_check.php",
+		"/Users/maxfranks/Documents/workspace/wsbf/wizbif/script.js",
+		"/Users/maxfranks/Documents/workspace/wsbf/indix.php",
+		"/Users/maxfranks/Documents/workspace/wsbf/script.js",
+		"/Applications/MAMP/htdocs/header.php",
+		"/Applications/MAMP/htdocs/login.php",
+		"/Users/maxfranks/Documents/location.php",
+		"/Users/maxfranks/Documents/workspace/tidytiger/ui/home/home.html",
+		"/Users/maxfranks/Documents/workspace/wsbf/dev/staff.php",
+		"/Users/maxfranks/Documents/Hobby/DOME/popup.js",
+		"/Users/maxfranks/Documents/Hobby/DOME/popup.html",
+		"/Users/maxfranks/Documents/Hobby/DOME/manifest.json",
+		"/Users/maxfranks/Documents/212/hw1/stringset.cpp",
+		"/Users/maxfranks/Documents/212/hw1/ma.cpp",
+		"/Users/maxfranks/Documents/212/hw1/se.cpp",
+		"/Users/maxfranks/Documents/212/hw1/stringset.h",
+		"/Users/maxfranks/Downloads/stringset(1).h",
+		"/Users/maxfranks/Documents/wsbf/views/fragments/nav_main.php",
+		"/Users/maxfranks/Documents/wsbf site/dev/views/fragments/slider_main.php",
+		"/Users/maxfranks/Documents/212/lab04/bst.cpp",
+		"/Users/maxfranks/Documents/Work/Classes Summer 2014/cpsc 372/prog/hello.py",
+		"/Users/maxfranks/Documents/Work/Classes Summer 2014/cpsc 372/prog/explore.py",
+		"/Users/maxfranks/Public/mss/home/home.html",
+		"/Users/maxfranks/Projects/ZAutomate/README.md",
+		"/Users/maxfranks/Documents/My Spice Society/about.html",
+		"/Users/maxfranks/Documents/My Spice Society/productdetail.html",
+		"/Users/maxfranks/Documents/My Spice Society/style copy.css",
+		"/Users/maxfranks/Documents/Project Work/WebDev/about.html",
+		"/Users/maxfranks/Documents/Project Work/WebDev/catalog.html",
+		"/Users/maxfranks/Documents/Project Work/WebDev/contact.html",
+		"/Users/maxfranks/Documents/Project Work/WebDev/productdetail.html",
+		"/Users/maxfranks/Downloads/ghost-0.4.1/README.md",
+		"/Users/maxfranks/Documents/EWB/Website/style.css",
+		"/Users/maxfranks/Documents/EWB/Website/home.html",
+		"/Users/maxfranks/Documents/EWB/Website/about.html",
+		"/Users/maxfranks/Documents/EWB/Website/donate.html",
+		"/Users/maxfranks/Documents/EWB/Website/projects.html",
+		"/Users/maxfranks/Documents/EWB/Website/cuewb.html",
+		"/Users/maxfranks/Downloads/IceCream/src/IceCream.java"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"\"",
+			";",
+			"echo \"",
+			"</li>",
+			"<li>",
+			"</th>",
+			"<th>",
+			"\";",
+			"\".",
+			"	\"",
+			"  \"",
+			"\";",
+			"\".",
+			"echo \"",
+			"	\"",
+			"tab",
+			"HASH"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"  ",
+			"",
+			"     ",
+			"   ",
+			"",
+			"     "
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/maxfranks/Downloads/pdfjs-1.0.1040-dist 2/web/viewer.html",
+					"settings":
+					{
+						"buffer_size": 19518,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 123.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "handbook/p_handbook.html",
+					"settings":
+					{
+						"buffer_size": 20616,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1835,
+								1835
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 6570.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "handbook/viewer.css",
+					"settings":
+					{
+						"buffer_size": 45549,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "handbook/viewer.js",
+					"settings":
+					{
+						"buffer_size": 228375,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1823,
+								1823
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 3.0,
+						"translation.y": 602.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Applications/MAMP/htdocs/hash_functions.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 291.0,
+	"status_bar_visible": true
+}
