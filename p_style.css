@@ -28,11 +28,18 @@ body{
 	margin: 0.25em 0;
 	padding: 0;
 }
+#header {
+	margin-bottom:10px;
+}
+#plateau {
+	padding: 10px;
+	height:75%;
+	border: 1px solid #cecece;
+	border-radius: 13px;
+}
 #actions_container{
 	float: left;
-	padding: 10px;
 	margin: 0px 0;
-	float:left;
 	background-color: #fff;
 	font: 1em Georgia, Times, Serif;
 }
@@ -86,53 +93,110 @@ a:hover{
 }
 
 #center {
-	padding: 10px;
-	margin: 0px 10px;
+	margin: 0;
+	margin-left: 10px;
 	float: left;
-	height: 60%;
-	width: 50%;
-	min-width:400px;
-	max-height: 600px;
- 	overflow-y: scroll;
-	background-color: #fff;
-	border: 1px solid #cecece;
-	border-radius: 13px;
+	bottom: 10px;
+	width: 80%;
+	height: 90%;
 	font: 1em Georgia, Times, Serif;
+	background-color: #fff;
+}
+
+#filters { 
+	position: relative;
+	margin:0;
+	display:block;
+}
+#filters td {
+	padding-left: 10px;
+	padding-right:10px;
+	margin: 0;
+	vertical-align: bottom;
 }
 #search {
-	margin: 0 5% 2% 0px;
-	padding:  2px 60px 2px 10px;
-	float:left;
-	border: 1px solid #cecece;
-	border-radius: 13px;
 	text-align: left;
 }
 #centerlab {
-	margin: 0 5% 2% 0px;
-	padding:  2px 2px 2px 10px;
-	float:left;
 	font-size: 20px;
 }
 #labels {
-	margin: 0 2% 2% 0px;
-	padding: 2px 10px 1px 10px;
-	float: right;
-	border: 1px solid #cecece;
-	border-radius: 13px;
+	margin: 0 3% ;
+}
+#results {
+	position: relative;
+	margin-top: 10px;
+	background-color: #fff;
+	overflow-y: scroll;
+}
 
+#detail {
+	margin-left: 25px;
+	margin-bottom: 10px;
+	padding: 0px;
 }
-#labels div {
-	margin-bottom: 2px;
-	padding: 2px 6px;
+
+.pure-form {
+	margin:0;
+	padding: 0, 0, 0, 0;
+	border: none;
 }
-#rotation_label div {
-	float: left;
+.pure-input-1-2 {
+	margin:0;
+	padding: 0, 0, 0, 0;
+}
+.pure-group {
+	margin:0;
+	-webkit-padding-before: 0;
+	-webkit-padding-start: 0;
+	-webkit-padding-end: 10px;
+	-webkit-padding-after: 0;
+	border: none;
 }
 #list {
-	padding: 10px;
-	width:80%;
-	float: left
+	margin: 10px, 0;
+	padding: 0px;
+	height: 335px;
+	width: 100%;
+	display: block;
+	overflow-y: scroll;
 }
+#list table {
+	border-collapse: separate;
+}
+#list th {
+	text-align: left;
+	max-width: 100px;
+}
+#results tr:hover {
+	background-color: rgba(190, 190, 190, 0.4);
+
+}
+#list td {
+	text-overflow: ellipsis;
+   	white-space: nowrap;
+  	max-width: 270px;
+  	overflow: hidden;
+  	padding-right: 10px
+}
+#addQueue div { 
+	float:right;
+}
+#formQueue {
+	z-index:10;
+	float:right;
+}
+
+
+#searchresults {
+	top:3px;
+	z-index: 15px;
+	position:relative;
+	background-color: #fff;
+	max-height:350px;
+	overflow-y:scroll;
+}
+
 #footer {
 	margin: 0 15px 0 0;
 	color:white;
