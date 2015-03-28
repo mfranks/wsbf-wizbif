@@ -82,21 +82,22 @@ echo "
 		</div>";
 
 		$tracksquery = "
-		SELECT DISTINCT t.track_num, t.track_name, t.airabilityID, t.disc_num
+		SELECT DISTINCT t.track_num, t.track_name, d.airability, t.disc_num
 		FROM libartist b
 		JOIN libalbum a on a.ArtistID = b.ArtistID
 		JOIN libtrack t on t.AlbumID = a.AlbumID
+		JOIN def_airability d on d.airabilityID = t.airabilityID
 		WHERE a.albumID = ".$sAlbumID."
 		";
 
 		$detailquery = "
-		SELECT a.album_name, a.albumID, b.artist_name, b.artistID
+		SELECT a.album_name, a.albumID, b.artist_name, b.artistID, r.reviewer, r.review
 		FROM libartist b
 		JOIN libalbum a on a.ArtistID = b.ArtistID
 		JOIN libtrack t on t.AlbumID = a.AlbumID
-		WHERE a.albumID = ".$sAlbumID;
-
-		$query.=" LIMIT 15;";
+		LEFT JOIN libreview r on r.albumID = a.albumID
+		WHERE a.albumID = ".$sAlbumID."
+		LIMIT 1";
 
 		//Submit Queries
 		$details = mysql_query($detailquery, $link);
@@ -110,9 +111,12 @@ echo "
 echo "<div id='results'>
 		<div id='detail'>
 			<strong>".$deet['album_name']."</strong><br>
-			by <a href= 'artistID=".$deet['artistID']."'>".$deet['artist_name']." </a> <br>
-			<a href=''>reviews and shit</a>
-		</div> 
+			by <a href= 'p_library.php?artistID=".$deet['artistID']."'>".$deet['artist_name']." </a> <br>";
+if( $deet['reviewer']) echo "<p>".$deet['review']." - ".$deet['reviewer']."</p>";
+else echo "<a href='p_review.php?albumID=".$deet['albumID']."'>Review this album</a>";
+	
+echo "</div> 
+
 	    <div id='list'>
 			<table>
 			    <tr>
@@ -125,8 +129,8 @@ echo "<div id='results'>
 		while($row = mysql_fetch_assoc($list)) {
 			echo "<tr>	
 	                <td><a href = ''>".$row['track_num'].". ".$row['track_name']."</a></td>
-	        		<td><img src='crystal2.png'>  13 <a href = ''>+</a></td>";
-	        if (!$row['airabilityID']) echo "<td>NO AIR</td>";
+	        		<td><img src='crystal2.png'>  13 <a href = ''>+</a></td>
+	        		<td>".$row['airability']."</td>";
 	        		
 			echo "</tr> ";
 	    }
@@ -149,17 +153,23 @@ echo "
 		</div>";
 
 		$albumsquery = "
-		SELECT DISTINCT a.albumID, a.album_name
-		FROM libartist b
-		JOIN libalbum a on a.ArtistID = b.ArtistID
-		WHERE b.artistID = ".$sArtistID;
+		SELECT a.albumID, a.album_name, a.artistID, r.reviewer
+		FROM libalbum a
+		LEFT JOIN libartist b on b.artistID = a.artistID
+		LEFT JOIN libreview r on r.albumID = a.albumID
+		LEFT JOIN def_rotations d on d.rotationID = a.rotationID
+		WHERE a.artistID = ".$sArtistID;
+
+		/*
+		LEFT JOIN libreview r on r.albumID = a.albumID
+		LEFT JOIN def_rotations d on d.rotationID = a.rotationID
+		*/
 
 		$detailquery = "
 		SELECT b.artist_name, b.artistID
 		FROM libartist b
 		JOIN libalbum a on a.ArtistID = b.ArtistID
-		WHERE b.artistID = ".$sArtistID;
-		$query.=" LIMIT 15;";
+		WHERE b.artistID = ".$sArtistID." LIMIT 1";
 
 		//Submit Query
 		$details = mysql_query($detailquery, $link);
@@ -174,7 +184,6 @@ echo "
 		<div id='results'>
 			<div id='detail'>
 				<strong>".$deet['artist_name']."</strong><br>
-				<a href=''>reviews and shit</a>
 			</div>
 			<div id='list'>
 				<table>
@@ -184,11 +193,16 @@ echo "
 
         //Get row from SQL Query, populate tables with Albums
 		while($row = mysql_fetch_assoc($list)) {
-		echo "
+echo "
 					<tr>	
-				 	    <td><a href = 'albumID=".$row['albumID']."'>".$row['album_name']."</a></td>
-		                <td><img src='crystal2.png'>  13</td>
-
+				 	    <td><a href = 'p_library.php?albumID=".$row['albumID']."'>".$row['album_name']."</a></td>";
+if ( $row['reviewer']){
+echo "				 	<td><a href = 'p_library.php?albumID=".$row['albumID']."'>".$row['reviewer']."</a></td>";
+} else {
+echo "					<td><a href = 'p_library.php?albumID=".$row['albumID']."'>review this! </a></td>";
+}
+echo"		            <td>".$row['binAbbr']."</td>  
+						<td><img src='crystal2.png'>  13</td>
 					</tr> ";
 	    }
 echo "			</table>
@@ -200,12 +214,12 @@ echo "			</table>
 	else { //no details set
 
 		$query = "
-		SELECT DISTINCT a.album_name, a.albumID, b.artist_name, b.artistID, r.reviewer
+		SELECT a.album_name, a.albumID, b.artist_name, b.artistID, r.reviewer, d.binAbbr
 		FROM libartist b
 		JOIN libalbum a on a.artistID = b.artistID
-		JOIN libtrack t on t.albumID = a.albumID
-		LEFT JOIN libreview r on r.albumID = a.albumID
-		LIMIT 15;";
+		LEFT JOIN libreview r on a.albumID = r.albumID
+		LEFT JOIN def_rotations d on d.rotationID = a.rotationID
+		LIMIT 50;";
 
 		//Submit Query
 		$list = mysql_query($query, $link);
@@ -218,8 +232,6 @@ echo 	"
 				<tr>
 					<td><div id = 'search'><input id = 'searchInput' type='text' value='Search: '></div></td>
  					<td><div id = 'centerlab'><a href='p_library.php?'>Bilbotheque</a></div></td>
-		            <th><a href = ''>Reviewed</a></th> 
-		            <th><a href = ''>Rotation</a></th>
  				</tr>
  			</table>
  		</div>
@@ -229,6 +241,8 @@ echo 	"
  				<tr>
 				    <th>Artist</th>
 				    <th>Album</th>
+				    <th><a href = ''></a></th> 
+		            <th><a href = ''></a></th>
 				    <th></td>
 	            </tr> ";
 	
@@ -266,11 +280,13 @@ echo "				<tr>
 						<td><a href = 'p_library.php?artistID=".$row['artistID']."'>".$row['artist_name']."</a></td>
 					 	<td><a href = 'p_library.php?albumID=".$row['albumID']."'>".$row['album_name']."</a></td>";
 if ( $row['reviewer']){
-echo "				 	<td><a href = 'p_library.php?albumID=".$row['albumID']."'> - ".$row['reviewer']."</a></td>";
+echo "				 	<td><a href = 'p_library.php?albumID=".$row['albumID']."'>".$row['reviewer']."</a></td>";
 } else {
-echo "					<td><a href = 'p_review.php?albumID=".$row['albumID']."'> - review this! </a></td>";
+echo "					<td><a href = 'p_review.php?albumID=".$row['albumID']."'>review this! </a></td>";
 }
-echo "					<td><img src='crystal2.png'>  13</td>
+
+echo "					<td>".$row['binAbbr']."</td>
+						<td><img src='crystal2.png'> 13</td>
 					</tr>";
 	    }
 echo "		</table>

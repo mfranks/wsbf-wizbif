@@ -14,6 +14,18 @@
 	}
 
 	$statusID = $_SESSION['statusID'];
+	$username = 'fractimal';
+
+
+	$playlistsquery = " 
+		SELECT playlist_name, playlistID, username
+		FROM libplaylists
+		WHERE 
+			username = 'fractimal'
+		LIMIT 10";
+
+	//Submit Queries
+	$playlists = mysql_query($playlistsquery, $link);
 
 
 echo "
@@ -30,24 +42,24 @@ echo "
      		<div id = 'header'>
      			<h1>WSBF-FM Clemson</h1>   
      			<strong>Welcome, ".$_SESSION['username']."</strong>
-	 				<a href=\"logout.php\">Log out</a> <br>
+	 				<a href=\"logout.php\">Log out</a> 
      		</div>  
      		<div id ='plateau'>
 	     		<div id='actions_container'>
 					<a live = true href='p_library.php'>Library</a> <br>
 					<a href='p_automate.php'>Automation Queue</a> <br>  
-					<a href='fishbowl/fishbowl_app.php'>Fishbowl points</a><br>    
-					<a href='show_sub/show_sub.php'>Show subs</a><br>       
-					<a href='archives'>Archives</a><br>      
+					<a href='p_profile.php'>Profiles and Archives</a><br>    
+					<a href='schedule/schedule.php'>Schedule</a><br>
 					<a href=\"rotation_control.php\">Labels/Rotation</a><br>
-					<a href=\"import/import_main.php\">Import Music</a><br> 
-					<a href='schedule_addshow.php'>Show schedule</a><br>
-	 				<a href='dick'>Engineering Blog</a><br>
-	 				<a href=\"weekly_top_20_tracks.php\">Weekly top 20</a><br>
-	 				<a href=\"profiles/form_edit_profile.php\">Edit DJ info</a><br>
-	 				<a href=\"profiles/view_show_profiles.php\">Show profiles</a><br>
-	 				<a href=\"schedule/schedule.php\">Show schedule</a><br> 
-	 				<a href=\"reviewsByActiveDJs.php\">Reviews</a><br>      
+					<a href=\"import/import_main.php\">Import Music</a><br>
+	 				<a href='p_weekly_top_20_tracks.php'>Weekly top 20</a><br>
+	 				<a href='p_playlists.php'>Playlists</a><br>";
+//if ($playlists) {
+ 	while ( $row = mysql_fetch_assoc($playlists)) {
+ echo 	"			<a href='p_playlists.php?playlistID=".$row['playlistID']."'> - ".$row['playlist_name']."</a><br>";
+ 	}
+//}
+echo 	"		  
 	     		</div>
 	     		<div id='center'></div>
 			</div>
@@ -75,14 +87,26 @@ echo "
 		$('#actions_container a').click(function (event) { 
 			event.preventDefault();
 
-   			var url = $(this).attr('href');
-   			$.post(url, function(data) {
+   			var wizbif = $(this).attr('href');
+   			$.post(wizbif, function(data) {
 				$('#center').html(data);
    			});
 
 			$('[live=true]').attr('live', false);
 			$(this).attr('live', true);
-
+			
+			//change browser URL to the given link location
+			if(wizbif!=window.location){
+				//window.history.pushState({path:wizbif},'',wizbif);
+			}
+			/*
+			// the below code is to override back button to get the ajax content without page reload
+			$(window).bind('popstate', function() {
+				$.ajax({wizbif,success: function(data){
+					//$('#center').html(data);
+				}});
+			});
+			*/
 		});
 	</script>
 </html>";

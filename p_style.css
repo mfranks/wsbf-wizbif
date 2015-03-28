@@ -10,43 +10,55 @@ body{
 }
 
 #container{
-	padding: 15px 3% 20px 3%;
+	padding: 10px;
 	background-color: #fff;
 	font: 1em Georgia, Times, Serif;
 	position:fixed;
-	bottom:25px;
-	top:3px;
-	left:6px;
-	right:6px;
-	border-radius: 13px;
+	top: 2px;
+	left: 4px;
+	right: 4px;
+	bottom: 22px;
+	border-radius: 15px;
 }
 
-#container h1{
+#header {
+	margin: 10px;
+	height: 70px;
+}
+#header h1{
 	font: 2.5em "Baskerville", Georgia, Times, Serif;
 	font-weight: bold;
 	text-align: left;	
-	margin: 0.25em 0;
+	margin: 0;
 	padding: 0;
 }
-#header {
-	margin-bottom:10px;
-}
+
 #plateau {
 	padding: 10px;
-	height:75%;
 	border: 1px solid #cecece;
-	border-radius: 13px;
+	border-radius: 15px;
+	position: relative;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	border-radius: 15px;
 }
 #actions_container{
 	float: left;
-	margin: 0px 0;
-	background-color: #fff;
+	margin: 3px 3px;
+	text-overflow: ellipsis;
+   	white-space: nowrap;
+  	width: 150px;
+  	overflow: hidden;
 	font: 1em Georgia, Times, Serif;
+	background-color: #fff;
 }
 #actions_container li {
+	background-color: #fff;
 	border:0;
 	margin: 0;
 	padding: 0;
+
 }
 
 #actions_container h1 a:link, a:visited, a:active{
@@ -93,35 +105,35 @@ a:hover{
 }
 
 #center {
-	margin: 0;
-	margin-left: 10px;
+	margin: 0px 15px;
 	float: left;
 	bottom: 10px;
 	width: 80%;
 	height: 90%;
 	font: 1em Georgia, Times, Serif;
-	background-color: #fff;
 }
 
 #filters { 
 	position: relative;
-	margin:0;
+	left: 10px;
+	padding: 0, 0;
 	display:block;
 }
 #filters td {
-	padding-left: 10px;
-	padding-right:10px;
+	padding-left: 8px;
+	padding-right: 8px;
 	margin: 0;
-	vertical-align: bottom;
+	vertical-align: top;
+	background-color: #fff;
 }
 #search {
 	text-align: left;
+	padding: 0;
 }
 #centerlab {
 	font-size: 20px;
 }
 #labels {
-	margin: 0 3% ;
 }
 #results {
 	position: relative;
@@ -134,10 +146,27 @@ a:hover{
 	margin-left: 25px;
 	margin-bottom: 10px;
 	padding: 0px;
+	float: left ;
+}
+
+#fields {
+	position: relative;
+	float: left;
+	margin-bottom: 10px;
+	padding: 0px;
+	width: 250px;
+}
+
+#review {
+	float: left;
+	width: 250px;
+	margin-left: 15px;
+	margin-bottom: 10px;
+	padding: 0px;
 }
 
 .pure-form {
-	margin:0;
+	margin: 0;
 	padding: 0, 0, 0, 0;
 	border: none;
 }
@@ -154,7 +183,7 @@ a:hover{
 	border: none;
 }
 #list {
-	margin: 10px, 0;
+	margin: -10px, 0;
 	padding: 0px;
 	height: 335px;
 	width: 100%;
@@ -166,7 +195,6 @@ a:hover{
 }
 #list th {
 	text-align: left;
-	max-width: 100px;
 }
 #results tr:hover {
 	background-color: rgba(190, 190, 190, 0.4);
@@ -175,7 +203,7 @@ a:hover{
 #list td {
 	text-overflow: ellipsis;
    	white-space: nowrap;
-  	max-width: 270px;
+  	max-width: 150px;
   	overflow: hidden;
   	padding-right: 10px
 }

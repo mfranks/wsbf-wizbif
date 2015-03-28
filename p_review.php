@@ -48,9 +48,7 @@
 
 
 	//get shit from the album
-	$album_query = sprintf("
-
-		SELECT album_name, num_discs, artistID, labelID, genre, general_genreID, album_code, rotationID 
+	$album_query = sprintf("SELECT album_name, num_discs, artistID, labelID, genre, general_genreID, album_code, rotationID 
 		FROM libalbum WHERE albumID = '%d'", $albumID);
 
 	$album = mysql_query($album_query, $link);
@@ -105,15 +103,15 @@
 	//I guess we use foobar records as default
 	if($label == "foobar records"){
 
-		$label = "";
+		$label = ""; 
 
 	}
-	echo "<div id='results'>
+	echo "
 		<div id='detail'>
-			<strong>".$deet['album_name']."</strong><br>
-			by <a href= 'artistID=".$deet['artistID']."'>".$artist." </a> <br>
-			Label: <INPUT TYPE = \"Text\" VALUE =\"$label\" NAME = \"label\"><br>
-			<a href=''>reviews and shit</a><br>";
+			<div id = 'fields'>
+				<strong>".$album_name."</strong><br>
+				by <a href= 'p_library?artistID=".$artistID."'>".$artist." </a> <br>
+				Label: <INPUT TYPE = \"Text\" VALUE =\"$label\" NAME = \"label\"><br>";
 	//echo "<tr><td><div id=\"top\">Album Artist:</div></td><td> <INPUT TYPE = \"Text\" VALUE =\"$artist\" NAME = \"artist\"><--------</td><td style=\"vertical-align:top\" rowspan=\"7\">This is the album artist, if it's various artists, put \"Various Artists\" and make the track artist the name of the artist who performed each track. If one artist performed all the tracks, leave the track artists alone. If an album is by an artist, but has tracks featuring other artists, you can change the track artist to say \"Album Artist feat. Another Artist.\" If an album has remixes, and titles like \"Track Name remixed by Artist Name,\" you should enter the track as \"Track Name (Remix)\" and make the track artist the name of the artist who did the remix.</td></tr>\n";
 
 	//get the general genre combobox
@@ -123,20 +121,29 @@
 		die ('This is an error message: ' . mysql_error());
 	}
 
-	echo "	Genre: <select $disabled name=\"general_genreID\">";
+	echo "		Genre: <select $disabled name=\"general_genreID\">";
 	while ($genre_get = mysql_fetch_array($genres, MYSQL_NUM)){
 
 		$genreID = $genre_get[0];
 		$genre = $genre_get[1];
 
-		echo "<option value=\"$genreID\"";
+		echo "			<option value=\"$genreID\"";
 		if($genreID == $general_genreID){
-			echo " selected='true'";	//selects correct general genre in the combobox if editing a CD
+			echo " 	selected='true'";	//selects correct general genre in the combobox if editing a CD
 		}
-		echo ">$genre</option>";
+		echo "									>$genre</option>";
 
 	}
-	echo "</select> <INPUT TYPE = \"Text\" VALUE =\"$genre\" NAME = \"genre\"></div>";
+echo "
+				</select> <br>
+				<INPUT TYPE = \"Text\" VALUE =\"$genre\" NAME = \"genre\">
+			</div>
+			<div id ='review'>
+				<div id=\"charLeft\"> <strong>Review</strong></div><br>
+				<textarea id=\"ta\" name='review' style=\"resize: none;\" cols=\"65\" rows=\"12\">$review</textarea>
+			</div>
+		</div>";
+
 
 	//if the username box is disabled it won't post, so we need to pass it somehow
 	if($disabled == "disabled"){
@@ -193,10 +200,15 @@ echo "
 	 	if ($album_num) {
 	 		echo  	$album_num." - ";
 	 	}
-	 		echo 	$track_num."<br>
+	 		echo 	$track_num."
 	 			</td>
-				<td><INPUT TYPE = \"Text\" SIZE ='40' VALUE =\"$track_name\" NAME = \"$tr\"></td>
-				<td><INPUT TYPE = \"Text\" SIZE ='40' VALUE =\"$artist_name\" NAME = \"$art\"></td><td>";
+				<td>
+					<INPUT TYPE = \"Text\" SIZE ='40' VALUE =\"$track_name\" NAME = \"$tr\">
+				</td>
+				<td>
+					<INPUT TYPE = \"Text\" SIZE ='40' VALUE =\"$artist_name\" NAME = \"$art\">
+				</td>
+				<td>";
 
 		//get the No Air, reccomended, etc shit
 		$air_query = "SELECT airabilityID, airability FROM def_airability";
@@ -206,7 +218,7 @@ echo "
 		}
 
 		//make the combo boxes
-		echo "<select name='$ai'>\r";
+		echo "		<select name='$ai'>\r";
 		while ($air_get = mysql_fetch_array($airables, MYSQL_NUM)){
 
 			$airID = $air_get[0];
@@ -225,7 +237,8 @@ echo "
 			</tr>\n";
 
 	}
-	echo "</table>\n<br>\n";
+	echo "
+		</table>\n<br>\n";
 	echo "<input type='hidden' name='track_total' value='$track_total'>";
 	echo "IF ANY OF THE TRACKS ARE MISSING, DON'T REVIEW THE ALBUM.<br>You'll need to email the music director at <a href=\"mailto:music@wsbf.net\">music@wsbf.net</a> and tell them the name and artist of the CD and that they need to re-rip it, you can include your review in the email as well and they can put it in for you. You also need to make sure you actually give them the CD so they can re-rip it.<br><br>";
 
@@ -249,6 +262,5 @@ echo "<div><input id=\"submit\" class='review' type='submit' value='Submit Revie
 </form>";
 
 echo "</div>";
-
 
 ?>
