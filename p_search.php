@@ -7,7 +7,7 @@
 
 
 //if (isset($_GET['searchType'])) {}
-echo "<div id = 'searchresults'>"; 
+echo "<div id = 'searchresults'><div id = list>"; 
 
 if ( isset($_GET['searchterm'])) {
 	
@@ -20,23 +20,24 @@ if ( isset($_GET['searchterm'])) {
 		JOIN libalbum a on a.artistID = b.artistID
 		JOIN libtrack t on t.albumID = a.albumID
 		WHERE t.track_name LIKE '%".$_GET['searchterm']."%'
-		LIMIT 15";
+		LIMIT 10";
 	$albumsquery = "
 		SELECT a.album_name, a.albumID, b.artist_name, b.artistID
 		FROM libalbum a
 		JOIN libartist b on a.artistID = b.artistID
 		WHERE a.album_name LIKE '%".$_GET['searchterm']."%'
-		LIMIT 15";
+		LIMIT 10";
 	$artistsquery = "
 		SELECT b.artist_name, b.artistID
 		FROM libartist b
 		WHERE b.artist_name LIKE '%".$_GET['searchterm']."%'
-		LIMIT 15";
+		LIMIT 10";
 
 	//Submit Queries
 	$tracknames = mysql_query($tracksquery, $link);
 	$albumnames = mysql_query($albumsquery, $link);
 	$artistnames = mysql_query($artistsquery, $link);
+
 
 	if ( mysql_num_rows($artistnames ) > 0 ) {
 		echo "
@@ -67,7 +68,7 @@ if ( isset($_GET['searchterm'])) {
 	}
 }
 
-echo "</div>";
+echo "</div></div>";
 
 echo "
 	<script type = 'text/javascript'>
@@ -93,7 +94,6 @@ echo "
 		$('#searchInput').keyup(function(event) {
 			var qs = 'p_search.php?searchterm=' + $(this).val();
 			$.post(qs, function(data) {
-				$
 				$('#searchresults').html(data);
    			});
 		});

@@ -22,64 +22,38 @@
 	if (isset($_GET['artistID'])) {
 		$sArtistID = $_GET['artistID'];
 	}
+
+	if (isset($_GET['rot'])) {
+		$rot = $_GET['rot'];
+	}
 	
 	$md_ret_value = MD_check();
-	$rot = 0;
 
-
-
-	//Track Detail // do later
-	if(!empty($sTrackNum) ) {
 	echo "
 		<div id = 'filters'> 
 			<table><tr>
 				<td><div id = 'search'><input id = 'searchInput' type='text' value='Search: '></div></td>
- 				<td><div id = 'centerlab'><a href='p_library.php?'>Bibliotheque</a></div></td>
-	     		<td><div id = 'review_label'><a href=''>To Be Reviewed</a></div></td>
-			    <td><div id = 'rotationtypes'><a href=''>Rotation</a></div></td>
+ 				<td><div id = 'centerlab'><a href='p_library.php?'>Bilbotheque</a></div></td>
+	     		<td></td>
+	     		<td><div id = 'reviewlabel'><a href='p_library.php?rot=0'>To Be Reviewed</a></div></td>
+			    <td></td>
+			    <td><div id = 'rotationlabel'>
+			    		<div id='rotationButton'><a href=' '>Rotation</a></div>
+			    		<div id='rotationtypes' style='display:none'>
+			    			<a href=''>: </a>
+			    			<a href = 'p_library.php?rot=1'>N</a>
+							<a href = 'p_library.php?rot=2'>H</a>
+							<a href = 'p_library.php?rot=3'>M</a>
+							<a href = 'p_library.php?rot=4'>L</a>
+							<a href = 'p_library.php?rot=6'>J</a>
+						</div>
+		    		</div>
+		    	</td>
 			</tr></table>
 		</div>";
-
-
-		$query = "
-		SELECT DISTINCT a.album_name, a.albumID, b.artist_name, b.artistID, t.track_num, t.track_name
-		FROM libartist b
-		JOIN libalbum a on a.ArtistID = b.ArtistID
-		JOIN libtrack t on t.AlbumID = a.AlbumID
-		WHERE 1=1 
-		AND a.albumID = ".$sAlbumID."
-		AND t.track_num = ".$sTrackID;
-
-		echo "<div id = 'list'>
-				<table id = 'list'>
-			     <tr>
-				     <th></th>
-				     <th>Track</th>
-				     <th>Album</th>
-		             <th>Artist</th>
-		             <th></th> 
-	             <tr> 
-	             <tr>	
-				 	    <td><a href = 'albumID=".$row['albumID']."&track_num=".$row['track_num'].">".$row['track_name']."</a></td>
-				 	    <td><a href = 'albumID=".$row['albumID']."''>".$row['album_name']."</a></td>
-		                <td><a href = 'artistID=".$row['artistID']."''>".$row['artist_name']."</a></td>
-					    <td>hp <a href='heart.php?liker=you&thing=albumID'>    14  </a></td>
-				</tr> 
-			</div>";
-	}
 
 	// Album Detail, muy important
 	if(!empty($sAlbumID)) {
-
-echo "
-		<div id = 'filters'> 
-			<table><tr>
-				<td><div id = 'search'><input id = 'searchInput' type='text' value='Search: '></div></td>
- 				<td><div id = 'centerlab'><a href='p_library.php?'>Bilbotheque</a></div></td>
-	     		<td><div id = 'review_label'><a href=''>To Be Reviewed</a></div></td>
-			    <td><div id = 'rotationtypes'><a href=''>Rotation</a></div></td>
-			</tr></table>
-		</div>";
 
 		$tracksquery = "
 		SELECT DISTINCT t.track_num, t.track_name, d.airability, t.disc_num
@@ -91,7 +65,7 @@ echo "
 		";
 
 		$detailquery = "
-		SELECT a.album_name, a.albumID, b.artist_name, b.artistID, r.reviewer, r.review
+		SELECT a.album_name, a.albumID, b.artist_name, b.artistID, r.username, r.reviewer, r.review, r.review_date
 		FROM libartist b
 		JOIN libalbum a on a.ArtistID = b.ArtistID
 		JOIN libtrack t on t.AlbumID = a.AlbumID
@@ -112,7 +86,7 @@ echo "<div id='results'>
 		<div id='detail'>
 			<strong>".$deet['album_name']."</strong><br>
 			by <a href= 'p_library.php?artistID=".$deet['artistID']."'>".$deet['artist_name']." </a> <br>";
-if( $deet['reviewer']) echo "<p>".$deet['review']." - ".$deet['reviewer']."</p>";
+if( $deet['reviewer']) echo "<p>".$deet['review']." - <a href = 'p_profiles.php?dj=".$deet['username']."'>".$deet['reviewer']."</a> ".$deet['review_date']."</p>";
 else echo "<a href='p_review.php?albumID=".$deet['albumID']."'>Review this album</a>";
 	
 echo "</div> 
@@ -128,11 +102,10 @@ echo "</div>
         //Get row from SQL Query, populate tables with tracks
 		while($row = mysql_fetch_assoc($list)) {
 			echo "<tr>	
-	                <td><a href = ''>".$row['track_num'].". ".$row['track_name']."</a></td>
+	                <td>".$row['track_num'].". ".$row['track_name']."</td>
+	        		<td>".$row['airability']."</td>
 	        		<td><img src='crystal2.png'>  13 <a href = ''>+</a></td>
-	        		<td>".$row['airability']."</td>";
-	        		
-			echo "</tr> ";
+				</tr> ";
 	    }
 echo "
 			</table>
@@ -142,18 +115,8 @@ echo "
 	
 	else if(!empty($sArtistID)) {
 
-echo "
-		<div id = 'filters'> 
-			<table><tr>
-				<td><div id = 'search'><input id = 'searchInput' type='text' value='Search: '></div></td>
- 				<td><div id = 'centerlab'><a href='p_library.php?'>Bibliotheque</a></div></td>
-	     		<td><div id = 'review_label'><a href=''>To Be Reviewed</a></div></td>
-			    <td><div id = 'rotationtypes'><a href=''>Rotation</a></div></td>
-			</tr></table>
-		</div>";
-
 		$albumsquery = "
-		SELECT a.albumID, a.album_name, a.artistID, r.reviewer
+		SELECT a.albumID, a.album_name, a.artistID, r.reviewer, r.username
 		FROM libalbum a
 		LEFT JOIN libartist b on b.artistID = a.artistID
 		LEFT JOIN libreview r on r.albumID = a.albumID
@@ -189,6 +152,7 @@ echo "
 				<table>
 				    <tr>
 					    <th>Album</th>
+					    <th>Reviewer</th>
 		            </tr> ";
 
         //Get row from SQL Query, populate tables with Albums
@@ -197,7 +161,7 @@ echo "
 					<tr>	
 				 	    <td><a href = 'p_library.php?albumID=".$row['albumID']."'>".$row['album_name']."</a></td>";
 if ( $row['reviewer']){
-echo "				 	<td><a href = 'p_library.php?albumID=".$row['albumID']."'>".$row['reviewer']."</a></td>";
+echo "				 	<td><a href = 'p_profiles.php?dj=".$row['username']."'>".$row['reviewer']."</a></td>";
 } else {
 echo "					<td><a href = 'p_library.php?albumID=".$row['albumID']."'>review this! </a></td>";
 }
@@ -211,15 +175,28 @@ echo "			</table>
 	}
 
 
-	else { //no details set
+	else { //nothing set
 
 		$query = "
-		SELECT a.album_name, a.albumID, b.artist_name, b.artistID, r.reviewer, d.binAbbr
-		FROM libartist b
-		JOIN libalbum a on a.artistID = b.artistID
+		SELECT a.album_name, a.albumID, b.artist_name, b.artistID, r.reviewer, r.review_date, r.username, a.rotationID
+		FROM libalbum a
+		JOIN libartist b on a.artistID = b.artistID
 		LEFT JOIN libreview r on a.albumID = r.albumID
-		LEFT JOIN def_rotations d on d.rotationID = a.rotationID
-		LIMIT 50;";
+		LEFT JOIN def_rotations d on d.rotationID = a.rotationID";
+
+		
+		//unreviewed or rotation
+		if ( isset($rot) ) {
+			$query.=" WHERE a.rotationID = ";
+			$query.=$rot;
+			$query.=" ORDER BY r.review_date ASC";
+		}
+		else { // default to new, recently reviewed rotation
+			$query.=" WHERE a.rotationID = 1
+					ORDER BY r.review_date DESC";
+		}
+	
+		$query.=" LIMIT 50";
 
 		//Submit Query
 		$list = mysql_query($query, $link);
@@ -227,21 +204,13 @@ echo "			</table>
 		//If query returns FALSE, no albums were returned.  Die with error
 		if (!$list) die ('No albums returned: ' . mysql_error());
 echo 	"
-		<div id = 'filters'>
-			<table>
-				<tr>
-					<td><div id = 'search'><input id = 'searchInput' type='text' value='Search: '></div></td>
- 					<td><div id = 'centerlab'><a href='p_library.php?'>Bilbotheque</a></div></td>
- 				</tr>
- 			</table>
- 		</div>
 		<div id = 'results'>
 			<div id = 'list'> 
 				<table>
  				<tr>
 				    <th>Artist</th>
 				    <th>Album</th>
-				    <th><a href = ''></a></th> 
+				    <th>Reviewer</th> 
 		            <th><a href = ''></a></th>
 				    <th></td>
 	            </tr> ";
@@ -280,7 +249,7 @@ echo "				<tr>
 						<td><a href = 'p_library.php?artistID=".$row['artistID']."'>".$row['artist_name']."</a></td>
 					 	<td><a href = 'p_library.php?albumID=".$row['albumID']."'>".$row['album_name']."</a></td>";
 if ( $row['reviewer']){
-echo "				 	<td><a href = 'p_library.php?albumID=".$row['albumID']."'>".$row['reviewer']."</a></td>";
+echo "				 	<td><a href = 'p_profiles.php?dj=".$row['username']."'>".$row['reviewer']."</a></td>";
 } else {
 echo "					<td><a href = 'p_review.php?albumID=".$row['albumID']."'>review this! </a></td>";
 }
@@ -318,6 +287,28 @@ echo "
 			$.post(qs, function(data) {
 				$('#center').html(data);
 
+   			});
+		});
+
+		$('#reviewlabel a').click(function(event) {
+			event.preventDefault();
+			var qs = $(this).attr('href');
+			$.post(qs, function(data) {
+				$('#center').html(data);
+   			});
+		});
+
+		$('#rotationButton a').click(function(event) {
+			event.preventDefault();
+			$('#rotationtypes').toggle();
+		});
+
+		$('#rotationtypes a').click(function(event) {
+			event.preventDefault();
+			$('#')
+			var qs = $(this).attr('href');
+			$.post(qs, function(data) {
+				$('#center').html(data);
    			});
 		});
 

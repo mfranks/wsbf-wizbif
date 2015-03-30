@@ -32,7 +32,8 @@ echo "
 <!DOCTYPE html>
 <html lang='en'>
 	<head>     
- 		<script src='//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>     
+		<script src='//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>   
+		<script src='jPlayer-2.9.2/dist/jplayer/jquery.jplayer.min.js'></script>    
  		<meta charset='utf-8'>     
  		<title>WIZBIZ</title>     
  		<link rel='stylesheet' href='p_style.css' />  
@@ -46,16 +47,15 @@ echo "
      		</div>  
      		<div id ='plateau'>
 	     		<div id='actions_container'>
-					<a live = true href='p_library.php'>Library</a> <br>
-					<a href='p_profile.php'>Profiles and Archives</a><br>    
+					<a live = true href='p_library.php'>Library</a> <br> 
 					<a href='schedule/schedule.php'>Schedule</a><br>
-					<a href=\"rotation_control.php\">Labels/Rotation</a><br>
-					<a href=\"import/import_main.php\">Import Music</a><br>
+					<a href='rotation_control.php'>Labels/Rotation</a><br>
+					<a href='import/import_main.php'>Import Music</a><br>
 	 				<a href='p_weekly_top_20_tracks.php'>Weekly top 20</a><br>
-	 				<a href='p_playlists.php'>Playlists</a><br>";
+	 				<a href='p_profiles.php'>Profiles and Playlists</a><br>";
 //if ($playlists) {
  	while ( $row = mysql_fetch_assoc($playlists)) {
- echo 	"			<a href='p_playlists.php?playlistID=".$row['playlistID']."'> - ".$row['playlist_name']."</a><br>";
+ echo 	"			<a href='p_profiles.php?playlistID=".$row['playlistID']."'> - ".$row['playlist_name']."</a><br>";
  	}
 //}
 echo 	"		  
@@ -63,7 +63,10 @@ echo 	"
 	     		<div id='center'></div>
 			</div>
 			<div id = 'footer'>
-	 			<a>|> BIRBS w/ Rob & Katie</a>
+	 			<div id='mediaPlayer'>
+				    <div id='mediaContainer'></div>
+				    <div class='jp-play' id='playButton'>Play</div>
+				</div>
 			</div>
 	 	</div>
      </body>";
@@ -78,10 +81,39 @@ echo 	"
 	<script type = 'text/javascript'>
 
 		$(function() {
+
 			$.post('p_library.php', function(data) {
 				$('#center').html(data);
    			});
+			
+			var mediaPlayer = $('#mediaContainer');
+			
+			mediaPlayer.jPlayer({
+    			ready: function () { 
+		        	$(this).jPlayer('setMedia', {
+		            	m4a: 'audio/spirals.mp3'
+		        	});
+				},
+				swfPath: 'http://jplayer.org/latest/dist/jplayer',
+		        supplied : 'm4a',
+		        cssSelector: {
+		            play: '#playButton'
+		        }
+			});
 		});
+
+		$('#playButton').click( function() {
+		    	if ( $('#playButton').html() == 'Play' ) {
+		    		$('#mediaContainer').jPlayer('play');
+		        	$('#playButton').html('Pause');
+		        	console.log('played');
+		    	}
+		    	else {
+		    		$('#mediaContainer').jPlayer('pause');
+					$('#playButton').html('Play');
+					console.log('paused');
+		    	} 
+		    });
 
 		$('#actions_container a').click(function (event) { 
 			event.preventDefault();

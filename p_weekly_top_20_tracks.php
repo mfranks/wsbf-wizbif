@@ -15,10 +15,6 @@
    /* Echo the header HTML information */
 
  echo "<h2> WSBF: Weekly Top-20 Rotation Tracks Played By DJs <h2>";
-
- /* Offer user option to return to main menu or log out */
- echo "<h5>If you want to, you can <a href=\"submit_login.php\">go back</a>, or you can <a href=\"logout.php\">log out</a>.<h5>";
-
  /* Print table of top 20 songs and info about the songs */
  print_song_list();
 
@@ -51,11 +47,14 @@ function print_song_list()
 
       /* Write query to find all songs (and their associated albums/tracks) from the logbook played within the last week (there can be repeats) */
       /* Limit it to shows that are not automation (show.show_typeID = 8 for automation) */
-       $log_query = sprintf("SELECT logbook.logbookID, logbook.lb_album_code, logbook.lb_track_num, show.show_typeID 
-                              FROM `logbook`, `show`
-                              WHERE logbook.showID = show.showID and show.show_typeID != 8 and logbook.time_played >= '%s' and logbook.lb_album_code != '' and (logbook.lb_rotation = 'N' or logbook.lb_rotation = 'H' or logbook.lb_rotation = 'M' or logbook.lb_rotation = 'L')",
-                                   $one_week_ago_english);
-
+       $log_query = "
+              SELECT logbook.logbookID, logbook.lb_album_code, logbook.lb_track_num, show.show_typeID 
+                  FROM `logbook`, `show`
+                  WHERE logbook.showID = show.showID 
+                    and show.show_typeID != 8 
+                    and logbook.time_played >= ".$one_week_ago_english."
+                    and logbook.lb_album_code != '' 
+                    and (logbook.lb_rotation = 'N' or logbook.lb_rotation = 'H' or logbook.lb_rotation = 'M' or logbook.lb_rotation = 'L')";
 
       /* Execute the query */
       $log_results = mysql_query($log_query, $link) or die ("A MySQL error has occurred.<br />Your Query: " . $log_query . "<br /> Error: (" . mysql_errno() . ") " . mysql_error());

@@ -133,7 +133,8 @@ a:hover{
 #centerlab {
 	font-size: 20px;
 }
-#labels {
+#rotationlabel div {
+	float: left;
 }
 #results {
 	position: relative;
