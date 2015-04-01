@@ -1,0 +1,29 @@
+<?php
+	
+	require_once("connect.php");
+	require_once("header.php");
+	require_once("hash_functions.php");
+	require_once("position_check.php");
+	
+	echo "
+
+	<form class='pure-form'>
+		<fieldset class='pure-group'>
+			<input type='text' class='pure-input-1-2' placeholder='Track'>
+			<input type='text' class='pure-input-1-2' placeholder='Album'>
+			<input type='text' class='pure-input-1-2' placeholder='Artist'>
+		<fieldset class='pure-group'>
+		<button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Sign in</button>
+	</form>
+	<p></p>
+
+
+	";
+	
+	$addquery = "
+		INSERT
+
+
+
+	";
+?>

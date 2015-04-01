@@ -1,7 +1,7 @@
 <html>
 	<head><title>WSBF Login</title><style>#top {text-align:right;}</style></head>
 <body>
-	<form id='login' action='p_index.php' method='post' accept-charset='UTF-8'>
+	<form id='login' action='../p_/' method='post' accept-charset='UTF-8'>
 	<table><tr><th colpan='2'>Login to WSBF</th></tr><tr>
 	<input type='hidden' name='submitted' id='submitted' value='1'/>
 	

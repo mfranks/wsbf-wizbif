@@ -1,20 +1,9 @@
 <?php
 
-/*
-  define variables
+$AutomationPlaylistID = 5343;
 
-  initialize/read in from querystring
+$bAdding = false;
 
-  build query 
-
-  build page while fetching results
-
-
-*/
-
-
-$actionAdd
-$trackID
 
 require_once("connect.php");
 require_once("header.php");
@@ -22,11 +11,12 @@ require_once("hash_functions.php");
 require_once("position_check.php");
 
 $query =  "
-    SELECT `libalbum`.`albumID`, `album_code`, `artist_name`, `album_name`
-    FROM `libalbum`, `libartist`, `libtrack`
-    WHERE `rotationID` = '$rot' 
-    AND `libalbum`.`artistID` = `libartist`.`artistID`
-    LIMIT 15";
+    SELECT DISTINCT a.album_name, a.albumID, b.artist_name, b.artistID, t.track_num, t.track_name
+      FROM libPlaylistTrackMap p
+      JOIN libtrack t on t.albumID = p.albumID and t.track_num = p.track_num
+      JOIN libalbum a on p.albumID = a.albumID
+      JOIN libartist b on b.artistID = a.artistID
+      WHERE p.playlistID = ".$AutomationPlaylistID;
   
     //Submit Query
     $list = mysql_query($query, $link);
@@ -34,63 +24,78 @@ $query =  "
     if (!$list) die ('No albums returned: ' . mysql_error());
 
 echo "
-        <div id = 'center'>
-          <div id = 'filters'> 
-            <div id = 'search'><a>Search:</a></div>
-            <div id = 'centerlab'><a>Bilbotheque</a></div>
-            <div id = 'labels'></div>
-          </div> 
-          <div id = 'list'>
-            <table id = 'list'>
-              <tr>
-                <th>Track/th>
-                <th>Album</th>
-                <th>Artist</th>
-                <th>Score</th>
-              </tr> ";
+        <div id = 'filters'> 
+          <table><tr>
+            <td><div id = 'search'><input id = 'searchInput' type='text' value='Search: '></div></td>
+            <td><div id = 'centerlab'><a href='p_automate.php?'>ZAutomate Queue</a></div></td>
+          </tr></table>
+        </div>
+        <div id='results'>
+        <div id = 'list'>
+          <div id = 'addQueue'>
+            <div>
+              <button type='submit' class='pure-button pure-input-1-2 pure-button-primary'>Add</button>
+            </div>
+          </div>
+          <table>
+            <tr>
+              <th>Track</th>
+              <th>Album</th>
+              <th>Artist</th>
+              <th>Score</th>
+            </tr> ";
 
 //Get row from SQL Query, populate tables with albums
 while($row = mysql_fetch_assoc($list)) {
   echo "
-              <tr>  
-                  <td><a>".$row['trackID']."</a></td>
-                  <td><a>".$row['albumID']."</a></td>
-                  <td><a>".$row['artistID']."</a></td>
-                  <td><img src='crystal.png'>".$row['score']."</td>
-              </tr>  ";
+            <tr>  
+                <td><a href ='albumID=".$row['albumID']."&track_num=".$row['albumID']."'>".$row['track_name']."</a></td>
+                <td><a href ='albumID=".$row['albumID']."'>".$row['album_name']."</a></td>
+                <td><a href ='artistID=".$row['artistID']."'>".$row['artist_name']."</a></td>
+                <td>∧ 13 ∨<img src='crystal.png'></td>
+            </tr>  ";
 }
 
 echo "
-            </table>   
-          </div>  
-        </div> ";
+          </table>  
+        </div> </div>";
 
 echo "
       <script type = 'text/javascript'>
 
-        $('#actions_container a').click(function (event) { 
+        $('#addQueue button').click(function(event){
           event.preventDefault();
-        };
+          
+          if ($('#addQueue div').size() == 1) {
+            $.post('p_addTrack.php', function(data) {
+              $('#addQueue').append(data);
+            });
+          }
+          else {
+            $('#addQueue div:nth-child(2)').remove();
+            //$('#addQueue').append('<p>Added!</p>');
+          }
+        });
+        
+        $('#list a').click(function(event){
+          event.preventDefault();
+          var qs = $(this).attr('href');
+          $.post('p_library.php?' + qs, function(data) {
+              $('#center').html(data);
+          });
+        });
 
+        /*
         $('#crystal').hover(function (event) {
-          $('#crystalUpDown').show();
+          //$('#crystalUpDown').show();
         });
 
         $('#crystalUpDown').click(function (event) {
-          if(this.html() = '^') {post some shit}
+          //if(this.html() = '^') {post some shit}
         });
-
-
-        $('#list a').click(function (event) { 
-          event.preventDefault();
-
-        });
+        */
 
       </script>";
-
-
-
-
 
 ?>
 
